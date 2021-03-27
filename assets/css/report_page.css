@@ -1,0 +1,73 @@
+.content-form
+{
+    float: right;
+    width: 71%;
+
+
+
+
+}
+.feedback-form
+{
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 25%; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0;
+    margin-top: 60px;
+    background-color: honeydew;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    padding-left: 25px;
+    padding-right: 15px;
+
+    /* right: 0;
+     z-index: 1;
+     height: auto;
+    position: fixed;
+    width: 25%; */
+}
+
+.student-if
+{
+    color: #11243b !important;
+    font-size:26px !important;
+    outline:none;
+    width:100%;
+    margin-left: 1px;
+    border:0px;
+}
+.student-ift
+{
+    color: #11243b !important;
+    font-size:16px !important;
+    outline:none;
+
+    font-weight: bold;
+    width:100%;
+    margin-left: 1px;
+    border:0px;
+}
+.student-ifto
+{
+    color: #11243b ;
+    font-size:16px ;
+    outline:none;
+    font-style: italic;
+    width:100%;
+    margin-left: 1px;
+    border:0px;
+}
+.feedback-submission
+{
+    background: powderblue;
+    border-radius: 15px;
+    padding: 11px;
+    padding-left: 18px;
+}
+
+@media screen and (max-height: 450px) {
+    .feedback-form {padding-top: 15px;}
+    .feedback-form  {font-size: 18px;}
+}
