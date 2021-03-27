@@ -107,9 +107,7 @@ $rowUserInfor = mysqli_fetch_array($result, MYSQLI_ASSOC);
                                                 <li class="nav-item">
                                                     <a class="nav-link active show" id="home-tab" data-toggle="tab" href="#inforStudent" role="tab" aria-controls="home" aria-selected="true">About</a>
                                                 </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#myFaculty" role="tab" aria-controls="profile" aria-selected="false">My Faculty</a>
-                                                </li>
+
                                             </ul>
                                         </div>
                                         <div class="about-student">
@@ -117,7 +115,7 @@ $rowUserInfor = mysqli_fetch_array($result, MYSQLI_ASSOC);
                                                 <div class="tab-pane fade active show" id="inforStudent" role="tabpanel" aria-labelledby="home-tab">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <label>Student ID</label>
+                                                            <label>System ID</label>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <?php
@@ -136,13 +134,31 @@ $rowUserInfor = mysqli_fetch_array($result, MYSQLI_ASSOC);
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <label>Student Name</label>
+                                                            <label>Full Name</label>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <?php
                                                             if (!empty($rowInfor["name"])) {
                                                                 ?>
                                                                 <p><?= $rowInfor["name"] ?></p>
+                                                                <?php
+                                                            } else {
+                                                                ?>
+                                                                <p>Null</p>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>Role</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <?php
+                                                            if (!empty($rowInfor["role"])) {
+                                                                ?>
+                                                                <p><?= $rowInfor["role"] ?></p>
                                                                 <?php
                                                             } else {
                                                                 ?>

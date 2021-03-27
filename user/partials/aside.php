@@ -141,21 +141,11 @@
                                 <i class="icon-placeholder fe fe-activity "></i>
                             </span>
                         </a>
-                        <a href="#" class="menu-link">
-                            <span class="menu-label">
-                                <span class="menu-name">
-                                    Dashboard
-                                </span>
-                            </span>
-                            <span class="menu-icon">
-                                <i class="icon-placeholder fe fe-activity "></i>
-                            </span>
-                        </a>
                     </li>
                     <li class="menu-item ">
                         <a href="/user/manager_marketing/manage_article.php" class="menu-link">
                             <span class="menu-label">
-                                <span class="menu-name">Manage Topic
+                                <span class="menu-name">Manage Article
                                 </span>
                             </span>
                             <span class="menu-icon">

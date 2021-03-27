@@ -149,6 +149,14 @@ if (isset($_POST["login"])) {
             window.location = "/user/index.php";
         </script>
     <?php
+    } elseif ($status == "1" && $role == "manager-marketing") {
+    $user = mysqli_fetch_array($res);
+    $userCurrent =  $_SESSION["current_user"] = $user;
+    ?>
+        <script type="text/javascript">
+            window.location = "/user/index.php";
+        </script>
+    <?php
     } elseif ($status == "1" && $role == "admin") {
         $user = mysqli_fetch_assoc($res);
         $userCurrent =  $_SESSION["current_user"] = $user;
