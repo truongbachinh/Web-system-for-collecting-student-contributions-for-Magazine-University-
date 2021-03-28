@@ -138,7 +138,7 @@ if (isset($_POST["login"])) {
         $userCurrent =  $_SESSION["current_user"] = $user;
     ?>
         <script type="text/javascript">
-            window.location = "/user/index.php";
+            window.location = "../user/index.php";
         </script>
     <?php
     } elseif ($status == "1" && $role == "manager-coordinator") {
@@ -146,7 +146,7 @@ if (isset($_POST["login"])) {
         $userCurrent =  $_SESSION["current_user"] = $user;
     ?>
         <script type="text/javascript">
-            window.location = "/user/index.php";
+            window.location = "../user/index.php";
         </script>
     <?php
     } elseif ($status == "1" && $role == "manager-marketing") {
@@ -154,7 +154,7 @@ if (isset($_POST["login"])) {
     $userCurrent =  $_SESSION["current_user"] = $user;
     ?>
         <script type="text/javascript">
-            window.location = "/user/index.php";
+            window.location = "../user/index.php";
         </script>
     <?php
     } elseif ($status == "1" && $role == "admin") {
@@ -162,7 +162,7 @@ if (isset($_POST["login"])) {
         $userCurrent =  $_SESSION["current_user"] = $user;
     ?>
         <script type="text/javascript">
-            window.location = "/user/admin/";
+            window.location = "../user/admin/";
         </script>
 <?php
     }
