@@ -1,5 +1,5 @@
 class Utils {
-    static API_URL = "http://localhost/api.php";
+    static API_URL = "https://ciliweb.vn/coursework/api.php";
     constructor() {
 
     }

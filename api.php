@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: application/json');
 include "./config.php";
+// include "./assets/js/utils.js";
 
 $response = array();
 $data = [];
@@ -42,7 +43,7 @@ if ($isLoggedIn) {
         case "delete_faculty_info":
             $id = $_POST['id'];
             $query = $conn->query("DELETE FROM `faculty` WHERE `f_id` = $id");
-            if($query){
+            if ($query) {
                 $msg = "Record deleted successfully";
             } else {
                 $error = 400;
@@ -50,21 +51,21 @@ if ($isLoggedIn) {
             }
             break;
         case "add_topic_info":
-                $count = 0;
-                $sql_user = "SELECT * from faculty where faculty_id ='$_POST[idFaculty]'";
-                $res = mysqli_query($conn, $sql_user) or die(mysqli_error($conn));
-                $count = mysqli_num_rows($res);
+            $count = 0;
+            $sql_user = "SELECT * from faculty where faculty_id ='$_POST[idFaculty]'";
+            $res = mysqli_query($conn, $sql_user) or die(mysqli_error($conn));
+            $count = mysqli_num_rows($res);
 
-                if ($count > 0) {
-                    $msg = "Faculty ID is already exist.";
-                } else {
-                    $addFaculty = mysqli_query($conn, "INSERT INTO `faculty` (`f_id`, `f_name`, `f_description`, `f_manager`, `faculty_id`) VALUES (NULL, '$_POST[nameFaculty]', '$_POST[descriptionFaculty]', '$_POST[facultyManage]', '$_POST[idFaculty]');");
-                    $msg = "Successfully added faculty.";
-                }
+            if ($count > 0) {
+                $msg = "Faculty ID is already exist.";
+            } else {
+                $addFaculty = mysqli_query($conn, "INSERT INTO `faculty` (`f_id`, `f_name`, `f_description`, `f_manager`, `faculty_id`) VALUES (NULL, '$_POST[nameFaculty]', '$_POST[descriptionFaculty]', '$_POST[facultyManage]', '$_POST[idFaculty]');");
+                $msg = "Successfully added faculty.";
+            }
         case "get_topic_info":
             $id = $_POST['id'];
-            $query = $conn ->query("SELECT * FROM `topic` WHERE `id` = $id");
-            if($query -> num_rows == 0 ){
+            $query = $conn->query("SELECT * FROM `topic` WHERE `id` = $id");
+            if ($query->num_rows == 0) {
                 $error = 1;
                 $smg = "This file is not available";
             } else {
@@ -78,8 +79,8 @@ if ($isLoggedIn) {
             $deadline = $_POST['deadline'];
             $description = $_POST['description'];
             $stmt = $conn->prepare("UPDATE `topic` SET `topic_id`=?,`topic_name`=?,`topic_description`=?,`topic_deadline`=? WHERE `id`=?");
-            $stmt->bind_param("ssssi",$topicCode, $topicName,$description,$deadline, $id);
-            if($stmt->execute()){
+            $stmt->bind_param("ssssi", $topicCode, $topicName, $description, $deadline, $id);
+            if ($stmt->execute()) {
                 $msg = "Record updated successfully";
             } else {
                 $error = 400;
@@ -124,7 +125,12 @@ if ($isLoggedIn) {
             $stmt = $conn->prepare("UPDATE `user` SET `username` = ?, `email` = ?, `fullname` = ?, `status` = ?, `role` = ? WHERE `u_id` = ?");
             if ($stmt->bind_param(
                 "sssisi",
-                $_POST['username'], $_POST['email'], $_POST['fullname'], $_POST['status'], $_POST['role'], $id
+                $_POST['username'],
+                $_POST['email'],
+                $_POST['fullname'],
+                $_POST['status'],
+                $_POST['role'],
+                $id
             ) && $stmt->execute()) {
                 $stmt2 = $conn->prepare("UPDATE `user` SET `password` = ? WHERE `u_id` = ?");
                 if ($stmt2->bind_param("si", $_POST['newPassword'], $id)) {
@@ -161,5 +167,3 @@ $response["error"] = $error;
 $response["data"] = $data;
 
 echo json_encode($response);
-
-?>
