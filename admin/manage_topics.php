@@ -1,7 +1,49 @@
 <?php
 include "../config.php";
 
-$date2 = strtotime("2018-09-21 10:44:01");
+
+
+$isError = false;
+$msg = "";
+
+$topic = $conn->query("SELECT * from topic");
+$topicSubmit = mysqli_fetch_assoc($topic);
+
+
+
+// $resFaculty = $conn->query("SELECT * from faculty");
+// $faculty = array();
+// while ($rowFaculty =  mysqli_fetch_array($resFaculty)) {
+//     $faculty[] = $rowFaculty;
+// }
+
+
+// $infor = $conn->query("SELECT faculty.*, topic.* FROM topic ");
+// if (!$infor) die($conn->error);
+// $topicInfor = array();
+// while ($topicF = mysqli_fetch_array($infor)) {
+//     $topicInfor[] = $topicF;
+// }
+
+if (isset($_POST["addTopic"])) {
+
+
+    $count = 0;
+    $sql_user = "SELECT * from topic where topic_name ='$_POST[topicName]'";
+    $res = mysqli_query($conn, $sql_user) or die(mysqli_error($conn));
+    $count = mysqli_num_rows($res);
+
+    if ($count > 0) {
+        $isError = true;
+        $msg = "Topic Id exits!";
+    } else {
+        $addFaculty = mysqli_query($conn, "INSERT INTO `topic` (`id`,  `topic_name`, `topic_description`, `topic_deadline`) VALUES (NULL,  '$_POST[topicName]', '$_POST[topicDescription]', '$_POST[startDeadLine]');");
+        if ($addFaculty) {
+            $msg = "Successfully added faculty.";
+        }
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,13 +101,22 @@ $date2 = strtotime("2018-09-21 10:44:01");
                                             $i = 1;
                                             $res = mysqli_query($conn, "select * from topic");
                                             while ($row = mysqli_fetch_array($res)) {
+                                                if ($topicSubmit != NULL) {
+                                                    $topicSubmit = mysqli_fetch_assoc($topic);
+                                                    $selected_date = ($row["topic_deadline"]);
+                                                    // echo $selected_date, "a ";
+                                                    $duration = 14;
+                                                    $duration_type = 'day';
+
+                                                    $deadline = date('Y/m/d H:i:s', strtotime($selected_date . ' +' . $duration . ' ' . $duration_type));
+                                                }
                                             ?>
                                                 <tr>
                                                     <td><?= $i++ ?></td>
                                                     <td><?php echo $row["topic_name"]; ?></td>
                                                     <td><?php echo $row["topic_description"]; ?></td>
                                                     <td><?php echo $row["topic_deadline"]; ?></td>
-                                                    <td><?php echo $row["topic_deadline"]; ?></td>
+                                                    <td><?php echo $deadline; ?></td>
                                                     <td><span class="badge badge-warning">Processing</span></td>
                                                     <td>
                                                         <div class="btn-group" role="group" aria-label="Basic example">
@@ -98,30 +149,23 @@ $date2 = strtotime("2018-09-21 10:44:01");
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="">
+                                <form action="" name="manageTopic" method="POST" enctype="multipart/form-data">
+
                                     <div class="form-group">
-                                        <label for="inputNameTopic">Topic Name</label>
-                                        <input type="text" class="form-control" id="inputNameTopic" name="nameTopic" required>
+                                        <label for="inputName1">Name of Topic</label>
+                                        <input type="text" class="form-control" id="inputTopicName" name="topicName" placeholder="Enter name of topic" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputTopicId">Topic ID</label>
-                                        <input type="text" class="form-control" id="inputTopicId" name="topicId" placeholder="Input Id" required>
+                                        <label for="inputName1">Description of Topic</label>
+                                        <input type="text" class="form-control" id="inputTopicDescription" name="topicDescription" placeholder="Enter name of topic" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputIdManager">Manager Topic</label>
-                                        <input type="text" class="form-control" placeholder="Input name" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="example-date-input">Date</label>
-                                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputManager">Description</label>
-                                        <textarea class="form-control" aria-label="With textarea" spellcheck="false"></textarea>
+                                        <label>Select Begin Date</label>
+                                        <input type="datetime-local" class="form-control" id="startDeadLine" name="startDeadLine">
                                     </div>
 
                                     <div class="model-footer">
-                                        <input type="button" class="btn btn-warning" name="change" value="Create Topic">
+                                        <input type="submit" class="btn btn-primary btn-md float-right" name="addTopic" value="Create Topic">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                             Close
                                         </button>
@@ -150,10 +194,7 @@ $date2 = strtotime("2018-09-21 10:44:01");
                                         <label for="inputNameTopic">Topic Name</label>
                                         <input type="text" class="form-control" id="topicName" required>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputTopicId">Topic ID</label>
-                                        <input type="text" class="form-control" id="topicCode" required>
-                                    </div>
+
                                     <div class="form-group">
                                         <label for="example-date-input">Deadline</label>
                                         <input class="form-control" type="datetime-local" id="deadline">

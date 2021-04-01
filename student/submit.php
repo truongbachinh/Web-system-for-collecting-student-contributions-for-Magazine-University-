@@ -17,7 +17,7 @@ $userInforFaculty = mysqli_fetch_assoc($userInfor);
 // }
 
 //$file = $conn->query("SELECT * from file_submit_to_topic where file_userId_uploaded = '$userId' AND `file_topic_uploaded` = '$idTopic' AND `id` = (SELECT MAX(id) from `file_submit_to_topic` where `file_userId_uploaded` = '$userId' ) ");
-$file = $conn->query("SELECT * from file_submit_to_topic where file_userId_uploaded = '3' AND `file_topic_uploaded` = '$idTopic' ORDER BY id DESC LIMIT 1 ");
+$file = $conn->query("SELECT * from file_submit_to_topic where file_userId_uploaded = '$userId' AND `file_topic_uploaded` = '$idTopic' ORDER BY id DESC LIMIT 1 ");
 if ($file == true) {
     $fileSubmit = mysqli_fetch_assoc($file);
 }
@@ -71,12 +71,10 @@ if ($years != 0) {
 if (isset($_POST['uploadFile'])) {
 
     $count = 0;
-    $res = mysqli_query($conn, "SELECT * from file_submit_to_topic where file_submit_to_topic.file_userId_uploaded = '$userId' AND file_submit_to_topic.file_topic_uploaded = '$idTopic'") or die(mysqli_error($link));
+    $res = mysqli_query($conn, "SELECT * from file_submit_to_topic where file_submit_to_topic.file_userId_uploaded = '$userId' AND file_submit_to_topic.file_topic_uploaded = '$idTopic'");
     $count = mysqli_num_rows($res);
-    var_dump($count);
     if ($count > 0) {
         $delete_query = $conn->query("DELETE FROM file_submit_to_topic where file_submit_to_topic.file_userId_uploaded = '$userId' AND file_submit_to_topic.file_topic_uploaded = '$idTopic' ");
-        var_dump($delete_query);
     }
 
 
@@ -136,7 +134,7 @@ if (isset($_POST['uploadFile'])) {
     }
 
     // Display status message 
-    echo $statusMsg;
+    // echo $statusMsg;
 
 
 
@@ -388,7 +386,7 @@ if (isset($_POST['uploadFile'])) {
                                             </div>
                                             <div class="form-group">
                                                 <div>
-                                                    <p class=" font-secondary">File Uploads</p>
+
                                                     <div class="form-group">
                                                         <div>
                                                             <p class=" font-secondary">File Uploads</p>

@@ -1,7 +1,37 @@
 <?php
 include "../config.php";
+$faculty = $conn->query("SELECT * from faculty");
+$facultyArray = array();
+while ($rowF = mysqli_fetch_array($faculty)) {
+    $facultyArray[] = $rowF;
+}
 
-$date2 = strtotime("2018-09-21 10:44:01");
+?>
+<?php
+if (isset($_POST['addNewUser'])) {
+    var_dump($_POST);
+    $msg = "";
+
+    $count = 0;
+    $sql_user = "SELECT * from user where username ='$_POST[usernameUser]'";
+    $res = mysqli_query($conn, $sql_user) or die(mysqli_error($conn));
+    $count = mysqli_num_rows($res);
+
+    if ($count > 0) {
+
+        $msg = "Topic Id exits!";
+    } else {
+
+
+        $addNewUser = $conn->query("INSERT INTO `user` (`u_id`, `fullname`, `username`, `password`, `email`, `status`, `role`, `faculty_id`,`u_create_time` ) VALUES (NULL, '$_POST[fullnameUser]', '$_POST[usernameUser]','$_POST[passwordUser]','$_POST[emailUser]','1','$_POST[roleUser]','$_POST[facultyUser]','" . time() . "');");
+        if ($addNewUser) {
+            $msg = "Successfully added faculty.";
+        }
+    }
+    var_dump($addNewUser);
+    exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,8 +67,9 @@ $date2 = strtotime("2018-09-21 10:44:01");
                                         </div>
                                     </div>
                                     <div class="col-sm-6 ">
-                                        <a href="#" class="btn btn-info float-right btn-create-user" role="button" onclick="add()"><i class="mdi mdi-clipboard-plus"></i> Create User
+                                        <a href="" class="btn btn-info float-right" role="button" data-toggle="modal" data-target="#addUser"><i class="mdi mdi-clipboard-plus"></i> Create User
                                         </a>
+
                                     </div>
                                 </div>
                                 <div class="table-responsive p-t-10">
@@ -49,6 +80,7 @@ $date2 = strtotime("2018-09-21 10:44:01");
                                                 <th>Username</th>
                                                 <th>Fullname</th>
                                                 <th>Email</th>
+                                                <th>Faculty</th>
                                                 <th>Status</th>
                                                 <th>Manage</th>
                                             </tr>
@@ -56,7 +88,7 @@ $date2 = strtotime("2018-09-21 10:44:01");
                                         <tbody>
                                             <?php
                                             $i = 1;
-                                            $res = mysqli_query($conn, "select * from user");
+                                            $res = mysqli_query($conn, "SELECT user.*, faculty.* from `user` INNER JOIN faculty ON faculty.f_id = user.faculty_id");
                                             while ($row = mysqli_fetch_array($res)) {
                                             ?>
                                                 <tr>
@@ -64,6 +96,8 @@ $date2 = strtotime("2018-09-21 10:44:01");
                                                     <td><?php echo $row["username"]; ?></td>
                                                     <td><?php echo $row["fullname"]; ?></td>
                                                     <td><?php echo $row["email"]; ?></td>
+                                                    <td> <?php echo $row["f_name"]; ?>
+                                                    </td>
                                                     <td>
                                                         <?php
                                                         if ($row["status"] == 1) { ?>
@@ -113,48 +147,62 @@ $date2 = strtotime("2018-09-21 10:44:01");
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="inputName1">First Name</label>
-                                            <input type="text" class="form-control" id="inputName1" placeholder="Thu Thuy" required>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputName2">Last Name</label>
-                                            <input type="text" class="form-control" id="inputName2" placeholder="Nguyen" required>
-                                        </div>
+                                <form action="" name="addUser" method="POST" enctype="multipart/form-data">
+
+                                    <div class="form-group">
+                                        <label for="inputName1">Full name</label>
+                                        <input type="text" class="form-control" id="inputName1" name="fullnameUser" placeholder="Thu Thuy" required>
                                     </div>
+
                                     <div class="form-group">
                                         <label for="username">Username</label>
-                                        <input type="text" class="form-control" id="username" placeholder="Enter username..." required>
+                                        <input type="text" class="form-control" id="username" name="usernameUser" placeholder="Enter username..." required>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputEmail1">Email</label>
-                                        <input type="email" class="form-control" id="inputEmail1" placeholder="Enter email" name="inputEmail" required>
-                                    </div>
+
                                     <div class="form-group">
                                         <label for="inputPass1">Password</label>
-                                        <input type="text" class="form-control" placeholder="Enter password" id="inputPass1" required>
+                                        <input type="text" class="form-control" placeholder="Enter password" name="passwordUser" id="inputPass1" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPass2">Confirm Passs</label>
-                                        <input type="text" class="form-control" id="inputPass2" placeholder="Enter confirm password" name="inputConfirmPass" required>
+                                        <input type="text" class="form-control" id="inputPass2" placeholder="Enter confirm password" name="confirmpasswordUser" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail1">Email</label>
+                                        <input type="email" class="form-control" id="inputEmail1" placeholder="Enter email" name="emailUser" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputAddress1">Address</label>
+                                        <input type="text" class="form-control" id="inputAddress1" name="addressUser" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputRole1">Roles</label>
-                                        <select id="inputRole" class="form-control" name="role">
+                                        <select id="inputRole" class="form-control" name="roleUser">
                                             <option selected value="student">Student</option>
                                             <option value="manager-coordinator">Manager Coordinator</option>
                                             <option value="manager-marketing">Manager Marketing</option>
                                             <option value="admin">Admin</option>
+                                            <option value="guest">Guest</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputAddress1">Address</label>
-                                        <input type="text" class="form-control" id="inputAddress1" name="inputAddress" required>
+                                        <label for="inputRole1">Faculty</label>
+                                        <select id="inputRole" class="form-control" name="facultyUser">
+                                            <?php
+                                            foreach ($facultyArray as $rowFaculty) {
+
+
+                                            ?>
+
+                                                <option value="<?= $rowFaculty['f_id'] ?>"><?= $rowFaculty['f_name'] ?></option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
+
                                     <div class="form-group">
-                                        <input class="btn btn-primary float-right btn-add-user" value="Create Account"></button>
+                                        <input class="btn btn-primary float-right btn-add-user" type="submit" name="addNewUser" value="Create Account"></button>
                                     </div>
                                 </form>
                             </div>
@@ -284,29 +332,29 @@ $date2 = strtotime("2018-09-21 10:44:01");
     <?php include "../partials/js_libs.php"; ?>
 
     <script>
-        function add() {
-            $(document).on('click', ".btn-create-user", function(e) {
-                $('#addUser').modal();
-                $(document).on('click', '.btn-add-user', function(e) {
-                    Utils.api("add_user_info", {
-                        fullname: $('#inputName2').val() + $('#inputName2'),
-                        username: $('#username').val(),
-                        email: $('#inputEmail1').val(),
-                        password: $('#inputPass1').val(),
-                        role: $('#inputRole').val(),
-                        address: $('#inputAddress1').val(),
-                    }).then(response => {
+        // function add() {
+        //     $(document).on('click', ".btn-create-user", function(e) {
+        //         $('#addUser').modal();
+        //         $(document).on('click', '.btn-add-user', function(e) {
+        //             Utils.api("add_user_info", {
+        //                 fullname: $('#inputName2').val() + $('#inputName2'),
+        //                 username: $('#username').val(),
+        //                 email: $('#inputEmail1').val(),
+        //                 password: $('#inputPass1').val(),
+        //                 role: $('#inputRole').val(),
+        //                 address: $('#inputAddress1').val(),
+        //             }).then(response => {
 
 
 
-                    }).catch(err => {
+        //             }).catch(err => {
 
-                    })
-                })
+        //             })
+        //         })
 
 
-            })
-        }
+        //     })
+        // }
 
         function remove(userId) {
             swal({
