@@ -63,6 +63,7 @@ if ($topicSubmit != NULL) {
                                                 <th>Topic description</th>
                                                 <th>Topic Start deadline</th>
                                                 <th>Topic End deadline</th>
+                                                <th>Quantity student submit</th>
                                                 <th>View Detail</th>
                                             </tr>
                                         </thead>
@@ -77,6 +78,7 @@ if ($topicSubmit != NULL) {
                                                 $topicFacultyInfor[] = $tInfor;
                                             }
                                             foreach ($topicFacultyInfor as $row) {
+                                                $topicIdAll = $row['id'];
                                             ?>
                                                 <tr>
                                                     <td><?php echo $i++; ?></td>
@@ -85,6 +87,27 @@ if ($topicSubmit != NULL) {
                                                     <td><?php echo $row["topic_description"]; ?></td>
                                                     <td><?php echo $row["topic_deadline"] ?></td>
                                                     <td><?= $deadline ?></td>
+                                                    <?php
+                                                    $countSubmit = $conn->query("SELECT COUNT(file_submit_to_topic.id) from file_submit_to_topic INNER JOIN topic ON topic.id = file_submit_to_topic.file_topic_uploaded WHERE file_submit_to_topic.file_topic_uploaded = ' $topicIdAll'");
+
+                                                    $studentSubmitCount = mysqli_fetch_assoc($countSubmit);
+                                                    if ($studentSubmitCount["COUNT(file_submit_to_topic.id)"]) {
+                                                    ?>
+                                                        <td>
+                                                            <button class="btn btn-info"> <?= $studentSubmitCount["COUNT(file_submit_to_topic.id)"] ?></button>
+                                                        </td>
+
+                                                    <?php
+                                                    } else {
+                                                    ?>
+                                                        <td>
+                                                            <?= $studentSubmitCount["COUNT(file_submit_to_topic.id)"] ?>
+                                                        </td>
+
+                                                    <?php
+                                                    }
+
+                                                    ?>
                                                     <td><a type="button" class="btn btn-primary" href="listofreport.php?idt=<?= $row["id"] ?>">Select</a>
                                                     </td>
                                                 </tr>
