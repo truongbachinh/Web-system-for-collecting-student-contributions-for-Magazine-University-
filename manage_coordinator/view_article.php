@@ -1,4 +1,5 @@
 <?php
+
 include "../config.php";
 $idFile = $_GET['idfile'];
 $idStudent = $_GET['idst'];
@@ -25,9 +26,15 @@ $userId = $_SESSION["current_user"]["u_id"];
 // exit;
 
 
+
+
+
+
 $fileContent = $conn->query("SELECT file_content.* from `file_content` where `file_submit_Id` = '$idFile'");
 $fileComment = $conn->query("SELECT file_comment.*,u.* from `file_comment` INNER JOIN user as u ON u.u_id = file_comment.file_comment_user where `file_submited_Id` = '$idFile'");
 $fileSubmission = $conn->query("SELECT file_submit_to_topic.*, user.*,faculty.* FROM file_submit_to_topic INNER JOIN user ON file_submit_to_topic.file_userId_uploaded = user.u_id INNER JOIN faculty ON faculty.f_id = user.faculty_id WHERE user.role = 'student' AND user.faculty_id = '$userFacultyId'  ORDER BY id DESC LIMIT 1");
+
+
 
 
 ?>
@@ -93,19 +100,190 @@ if (isset($_POST['uploadCommnet'])) {
                     <div class="col-m-8 content-form">
                         <?php
                         $count = 1;
+
+
+                        $fileContentArray = array();
+                        while ($rowFile = mysqli_fetch_array($fileContent)) {
+                            $fileContentArray[] = $rowFile;
+                        }
                         if ($fileContent->num_rows > 0) {
-                            while ($row = $fileContent->fetch_assoc()) {
+                            foreach ($fileContentArray as $row) {
 
-                                $imageURL = '../student/file_library/' . $row["file_content_name"];
+                                $fileURL = "";
+                                $fileType = "";
+                                $allowTypes = array('docx', 'doc', 'pdf', 'application/pdf');
+                                $fileURL = '../student/file_library/' . $row["file_content_name"];
+                                $fileType = pathinfo($fileURL, PATHINFO_EXTENSION);
+
+
+                                if ($fileType === "docx") {
+                                    // $fields_string = "";
+                                    // $url = '';
+                                    // $fields = array(
+                                    //     'inputFile' => file_get_contents($fileURL),
+                                    //     'conversionParameters' => '{}',
+                                    //     'outputFormat' => 'pdf',
+                                    //     'async' => 'false'
+                                    // );
+                                    // // var_dump($fields);
+                                    // //url-ify the data for the POST
+                                    // foreach ($fields as $key => $value) {
+                                    //     $fields_string .= $key . '=' . $value . '&';
+                                    // }
+                                    // // print_r("``````````````````````````````````````````````");
+                                    // $fields_string = rtrim($fields_string, '&');
+                                    // // var_dump($fields_string);
+                                    // //open connection
+                                    // $ch = curl_init();
+                                    // //set the url, number of POST vars, POST data
+                                    // curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                                    //     'X-ApplicationID: 6c278907-e2a6-4f49-a929-6d08d0284786',
+                                    //     'X-SecretKey: ba3bf94f-f83e-405b-8104-ad4fc84f43bc'
+                                    // ));
+                                    // curl_setopt($ch, CURLOPT_URL, $url);
+                                    // curl_setopt($ch, CURLOPT_POST, count($fields));
+                                    // curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+                                    // //execute post
+                                    // $result = curl_exec($ch);
+                                    // print_r($result);
+
+
+
+
+                                    $fileType = "pdf";
+                                    $a =  str_replace('docx', $fileType, $fileURL);
+                                    $fileURL = preg_replace('/\s+/', '', $a);
+                                } elseif ($fileType === "doc") {
+                                    // $fileType = "pdf";
+                                    // $fileURL =  str_replace('doc', $fileType, $fileURL);
+                                }
+
+                                var_dump($fileURL);
+                                if (in_array($fileType, $allowTypes)) {
+                                    // var_dump($fileURL);
+                                    // exit;
+
                         ?>
-                                <div>
-                                    <p>File STT <?= $count++ ?></p>
-                                    <a href="<?= $row['file_content_name'] ?>"> <img src="<?php echo $imageURL; ?>" alt="" width="350" height="350  " class="img-fluid" id="img-view-details" />
-                                    </a>
+                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js">
+                                    </script>
+                                    <p style="font-weight: bold; color:red;">No. <?= $count++ ?></p>
+                                    <hr>
+                                    <div id="my_pdf_viewer">
+                                        <div id="canvas_container" style="width: 800px;
+        height: 600px;
+        overflow: auto;">
+                                            <canvas id="pdf_renderer"></canvas>
+                                        </div>
 
-                                </div>
+                                        <div id="navigation_controls">
+                                            <button id="go_previous">Previous</button>
+                                            <input id="current_page" value="1" type="number" />
+                                            <button id="go_next">Next</button>
+                                        </div>
 
-                        <?php }
+                                        <div id="zoom_controls">
+                                            <button id="zoom_out">-</button>
+                                            <button id="zoom_in">+</button>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        var myState = {
+                                            pdf: null,
+                                            currentPage: 1,
+                                            zoom: 1
+                                        }
+
+                                        pdfjsLib.getDocument('<?php echo $fileURL ?>').then((pdf) => {
+
+                                            myState.pdf = pdf;
+                                            render();
+
+                                        });
+
+                                        function render() {
+                                            myState.pdf.getPage(myState.currentPage).then((page) => {
+
+                                                var canvas = document.getElementById("pdf_renderer");
+                                                var ctx = canvas.getContext('2d');
+
+                                                var viewport = page.getViewport(myState.zoom);
+
+                                                canvas.width = viewport.width;
+                                                canvas.height = viewport.height;
+
+                                                page.render({
+                                                    canvasContext: ctx,
+                                                    viewport: viewport
+                                                });
+                                            });
+                                        }
+                                        document.getElementById('go_previous')
+                                            .addEventListener('click', (e) => {
+                                                if (myState.pdf == null || myState.currentPage == 1)
+                                                    return;
+
+                                                myState.currentPage -= 1;
+                                                document.getElementById("current_page").value = myState.currentPage;
+                                                render();
+                                            });
+                                        document.getElementById('go_next')
+                                            .addEventListener('click', (e) => {
+                                                if (myState.pdf == null || myState.currentPage > myState.pdf._pdfInfo.numPages)
+                                                    return;
+
+                                                myState.currentPage += 1;
+                                                document.getElementById("current_page").value = myState.currentPage;
+                                                render();
+                                            });
+                                        document.getElementById('current_page')
+                                            .addEventListener('keypress', (e) => {
+                                                if (myState.pdf == null) return;
+
+                                                // Get key code
+                                                var code = (e.keyCode ? e.keyCode : e.which);
+
+                                                // If key code matches that of the Enter key
+                                                if (code == 13) {
+                                                    var desiredPage = document.getElementById('current_page').valueAsNumber;
+
+                                                    if (desiredPage >= 1 && desiredPage <= myState.pdf._pdfInfo.numPages) {
+                                                        myState.currentPage = desiredPage;
+                                                        document.getElementById("current_page").value = desiredPage;
+                                                        render();
+                                                    }
+                                                }
+                                            });
+                                        document.getElementById('zoom_in')
+                                            .addEventListener('click', (e) => {
+                                                if (myState.pdf == null) return;
+                                                myState.zoom += 0.5;
+
+                                                render();
+                                            });
+                                        document.getElementById('zoom_out')
+                                            .addEventListener('click', (e) => {
+                                                if (myState.pdf == null) return;
+                                                myState.zoom -= 0.5;
+
+                                                render();
+                                            });
+                                    </script>
+
+                                <?php
+                                } elseif (!in_array($fileType, $allowTypes)) {
+                                    $imageURL = '../student/file_library/' . $row["file_content_name"];
+                                ?>
+                                    <div>
+                                        <p style="font-weight: bold; color:red; margin:10px 0px">No. <?= $count++ ?></p>
+                                        <hr>
+                                        <a href="<?= $row['file_content_name'] ?>"> <img src="<?php echo $imageURL; ?>" alt="" width="350" height="350  " class="img-fluid" id="img-view-details" />
+                                        </a>
+
+                                    </div>
+
+                        <?php
+                                }
+                            }
                         }
                         ?>
                     </div>

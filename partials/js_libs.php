@@ -13,3 +13,4 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="../assets/vendor/apexchart/apexcharts.min.js"></script>
 <script src="../assets/js/utils.js"></script>
+<script src="../composer.js"></script>

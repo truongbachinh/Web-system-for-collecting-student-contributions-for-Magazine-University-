@@ -69,7 +69,7 @@ if ($years != 0) {
 
 <?php
 if (isset($_POST['uploadFile'])) {
-
+    $fileType = "";
     $count = 0;
     $res = mysqli_query($conn, "SELECT * from file_submit_to_topic where file_submit_to_topic.file_userId_uploaded = '$userId' AND file_submit_to_topic.file_topic_uploaded = '$idTopic'");
     $count = mysqli_num_rows($res);
@@ -86,20 +86,27 @@ if (isset($_POST['uploadFile'])) {
         mkdir($uploadPath, 0777, true);
     }
 
-    $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
+    $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'docx', 'DOCX', 'doc', 'pdf', 'application/pdf');
 
     $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = '';
 
     $fileNames = array_filter($_FILES['inputFileArticle']['name']);
-
+    $targetFilePath = "";
+    $fileType = "";
     if (!empty($fileNames)) {
         foreach ($_FILES['inputFileArticle']['name'] as $key => $val) {
             $fileName =  $tm . basename($_FILES['inputFileArticle']['name'][$key]);
             $targetFilePath = $uploadPath . $fileName;
-
-
             $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+            // if ($fileType == "docx") {
+            //     $fileType = "pdf";
+            //     $targetFilePath =  str_replace('docx', $fileType, $targetFilePath);
+            // } elseif ($fileType == "doc") {
+            //     $fileType = "pdf";
+            //     $targetFilePath =  str_replace('doc', $fileType, $targetFilePath);
+            // }
             if (in_array($fileType, $allowTypes)) {
+
 
                 if (move_uploaded_file($_FILES["inputFileArticle"]["tmp_name"][$key], $targetFilePath)) {
 
@@ -330,9 +337,15 @@ if (isset($_POST['uploadFile'])) {
                     <div class=" card-footer button-submit text-center">
 
                         <?php
-                        if ($timeSubmitFile < $deadline) {
+                        if ($timeSubmitFile < $deadline && $file->num_rows == 0) {
                         ?>
                             <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target=".modal-submit-artical">Add Submission
+                            </button>
+                        <?php
+                        }
+                        if ($timeSubmitFile < $deadline && $file->num_rows > 0) {
+                        ?>
+                            <button type="button" class="btn btn-lg btn-info" data-toggle="modal" data-target=".modal-submit-artical">Edit Submission
                             </button>
                         <?php
                         } elseif ($timeSubmitFile > $deadline && $timeSubmitFile < $secondDeadline && ($file->num_rows > 0)) {
