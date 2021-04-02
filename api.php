@@ -50,7 +50,7 @@ if ($isLoggedIn) {
                 $msg = "Error delete record: " . $conn->error;
             }
             break;
-        case "add_topic_info":
+        case "add_submission_info":
             $count = 0;
             $sql_user = "SELECT * from faculty where faculty_id ='$_POST[idFaculty]'";
             $res = mysqli_query($conn, $sql_user) or die(mysqli_error($conn));
@@ -62,9 +62,9 @@ if ($isLoggedIn) {
                 $addFaculty = mysqli_query($conn, "INSERT INTO `faculty` (`f_id`, `f_name`, `f_description`, `f_manager`, `faculty_id`) VALUES (NULL, '$_POST[nameFaculty]', '$_POST[descriptionFaculty]', '$_POST[facultyManage]', '$_POST[idFaculty]');");
                 $msg = "Successfully added faculty.";
             }
-        case "get_topic_info":
+        case "get_submission_info":
             $id = $_POST['id'];
-            $query = $conn->query("SELECT * FROM `topic` WHERE `id` = $id");
+            $query = $conn->query("SELECT * FROM `submission` WHERE `id` = $id");
             if ($query->num_rows == 0) {
                 $error = 1;
                 $smg = "This file is not available";
@@ -72,14 +72,14 @@ if ($isLoggedIn) {
                 $data = $query->fetch_assoc();
             }
             break;
-        case "update_topic_info":
+        case "update_submission_info":
             $id = $_POST['id'];
-            $topicName = $_POST['topicName'];
-            $topicCode = $_POST['topicCode'];
+            $submissionName = $_POST['submissionName'];
+            $submissionCode = $_POST['submissionCode'];
             $deadline = $_POST['deadline'];
             $description = $_POST['description'];
-            $stmt = $conn->prepare("UPDATE `topic` SET `topic_id`=?,`topic_name`=?,`topic_description`=?,`topic_deadline`=? WHERE `id`=?");
-            $stmt->bind_param("ssssi", $topicCode, $topicName, $description, $deadline, $id);
+            $stmt = $conn->prepare("UPDATE `submission` SET `submission_id`=?,`submission_name`=?,`submission_description`=?,`submission_deadline`=? WHERE `id`=?");
+            $stmt->bind_param("ssssi", $submissionCode, $submissionName, $description, $deadline, $id);
             if ($stmt->execute()) {
                 $msg = "Record updated successfully";
             } else {
@@ -87,12 +87,12 @@ if ($isLoggedIn) {
                 $msg = "Error delete record: " . $conn->error;
             }
             break;
-        case "delete_topic":
+        case "delete_submission":
             $id = $_POST['id'];
-            $stmt = $conn->prepare("DELETE FROM `topic` WHERE `id` = ?");
+            $stmt = $conn->prepare("DELETE FROM `submission` WHERE `id` = ?");
             $stmt->bind_param("i", $id);
             if ($stmt->execute()) {
-                $msg = "Successfully deleted topic.";
+                $msg = "Successfully deleted submission.";
             } else {
                 $error = 400;
                 $msg = "Error delete record: " . $conn->error;

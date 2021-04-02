@@ -5,13 +5,13 @@ $userFacultyId = $_SESSION["current_user"]["faculty_id"];
 $userId = $_SESSION["current_user"]["u_id"];
 
 
-$topic = $conn->query("SELECT faculty.*,user.*, topic.* FROM (( faculty INNER JOIN topic ON faculty.f_id = topic.faculty_id) INNER JOIN user ON faculty.f_id = user.faculty_id) WHERE user.u_id = '$userId' AND user.role = 'manager-coordinator'");
-$topic = $conn->query("SELECT * FROM topic");
-$topicSubmit = mysqli_fetch_assoc($topic);
+$submission = $conn->query("SELECT faculty.*,user.*, submission.* FROM (( faculty INNER JOIN submission ON faculty.f_id = submission.faculty_id) INNER JOIN user ON faculty.f_id = user.faculty_id) WHERE user.u_id = '$userId' AND user.role = 'manager-coordinator'");
+$submission = $conn->query("SELECT * FROM submission");
+$submissionSubmit = mysqli_fetch_assoc($submission);
 
-if ($topicSubmit != NULL) {
+if ($submissionSubmit != NULL) {
 
-    $selected_date = ($topicSubmit["topic_deadline"]);
+    $selected_date = ($submissionSubmit["submission_deadline"]);
     // echo $selected_date, "a ";
     $duration = 14;
     $duration_type = 'day';
@@ -42,7 +42,7 @@ if ($topicSubmit != NULL) {
                         <div class="card">
                             <div class="card-header">
                                 <div class="card-title">
-                                    <h4>LIST TOPIC</h4>
+                                    <h4>LIST SUBMISSION</h4>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -59,10 +59,10 @@ if ($topicSubmit != NULL) {
                                         <thead>
                                             <tr>
                                                 <th>Id</th>
-                                                <th>Topic name</th>
-                                                <th>Topic description</th>
-                                                <th>Topic Start deadline</th>
-                                                <th>Topic End deadline</th>
+                                                <th>Submission name</th>
+                                                <th>Submission description</th>
+                                                <th>Submission Start deadline</th>
+                                                <th>Submission End deadline</th>
                                                 <th>Quantity student submit</th>
                                                 <th>View Detail</th>
                                             </tr>
@@ -70,38 +70,38 @@ if ($topicSubmit != NULL) {
                                         <tbody>
                                             <?php
                                             $i = 1;
-                                            // $topicInfor = $conn->query("SELECT faculty.*,user.*, topic.* FROM (( faculty INNER JOIN topic ON faculty.f_id = topic.faculty_id) INNER JOIN user ON faculty.f_id = user.faculty_id) WHERE user.u_id = '$userId' AND user.role = 'manager-coordinator'");
-                                            $topicInfor = $conn->query("SELECT user.*, topic.*, faculty.* FROM topic INNER JOIN user ON user.u_id = user.u_id INNER JOIN faculty ON faculty.f_id = user.faculty_id WHERE user.u_id = '$userId' AND user.role = 'manager-coordinator'");
+                                            // $submissionInfor = $conn->query("SELECT faculty.*,user.*, submission.* FROM (( faculty INNER JOIN submission ON faculty.f_id = submission.faculty_id) INNER JOIN user ON faculty.f_id = user.faculty_id) WHERE user.u_id = '$userId' AND user.role = 'manager-coordinator'");
+                                            $submissionInfor = $conn->query("SELECT user.*, submission.*, faculty.* FROM submission INNER JOIN user ON user.u_id = user.u_id INNER JOIN faculty ON faculty.f_id = user.faculty_id WHERE user.u_id = '$userId' AND user.role = 'manager-coordinator'");
 
-                                            $topicFacultyInfor = array();
-                                            while ($tInfor = mysqli_fetch_array($topicInfor)) {
-                                                $topicFacultyInfor[] = $tInfor;
+                                            $submissionFacultyInfor = array();
+                                            while ($tInfor = mysqli_fetch_array($submissionInfor)) {
+                                                $submissionFacultyInfor[] = $tInfor;
                                             }
-                                            foreach ($topicFacultyInfor as $row) {
-                                                $topicIdAll = $row['id'];
+                                            foreach ($submissionFacultyInfor as $row) {
+                                                $submissionIdAll = $row['id'];
                                             ?>
                                                 <tr>
                                                     <td><?php echo $i++; ?></td>
 
-                                                    <td><?php echo $row["topic_name"]; ?></td>
-                                                    <td><?php echo $row["topic_description"]; ?></td>
-                                                    <td><?php echo $row["topic_deadline"] ?></td>
+                                                    <td><?php echo $row["submission_name"]; ?></td>
+                                                    <td><?php echo $row["submission_description"]; ?></td>
+                                                    <td><?php echo $row["submission_deadline"] ?></td>
                                                     <td><?= $deadline ?></td>
                                                     <?php
-                                                    $countSubmit = $conn->query("SELECT COUNT(file_submit_to_topic.id) from file_submit_to_topic INNER JOIN topic ON topic.id = file_submit_to_topic.file_topic_uploaded WHERE file_submit_to_topic.file_topic_uploaded = ' $topicIdAll'");
+                                                    $countSubmit = $conn->query("SELECT COUNT(file_submit_to_submission.id) from file_submit_to_submission INNER JOIN submission ON submission.id = file_submit_to_submission.file_submission_uploaded WHERE file_submit_to_submission.file_submission_uploaded = ' $submissionIdAll'");
 
                                                     $studentSubmitCount = mysqli_fetch_assoc($countSubmit);
-                                                    if ($studentSubmitCount["COUNT(file_submit_to_topic.id)"]) {
+                                                    if ($studentSubmitCount["COUNT(file_submit_to_submission.id)"]) {
                                                     ?>
                                                         <td>
-                                                            <button class="btn btn-info"> <?= $studentSubmitCount["COUNT(file_submit_to_topic.id)"] ?></button>
+                                                            <button class="btn btn-info"> <?= $studentSubmitCount["COUNT(file_submit_to_submission.id)"] ?></button>
                                                         </td>
 
                                                     <?php
                                                     } else {
                                                     ?>
                                                         <td>
-                                                            <?= $studentSubmitCount["COUNT(file_submit_to_topic.id)"] ?>
+                                                            <?= $studentSubmitCount["COUNT(file_submit_to_submission.id)"] ?>
                                                         </td>
 
                                                     <?php
@@ -153,27 +153,27 @@ if ($topicSubmit != NULL) {
 
 </html>
 <?php
-if (isset($_POST["addTopic"])) {
+if (isset($_POST["addSubmission"])) {
     var_dump($_POST);
 
     $count = 0;
-    $sql_user = "SELECT * from topic where topic_id ='$_POST[topicId]'";
+    $sql_user = "SELECT * from submission where submission_id ='$_POST[submissionId]'";
     $res = mysqli_query($conn, $sql_user) or die(mysqli_error($conn));
     $count = mysqli_num_rows($res);
 
     if ($count > 0) {
 ?>
         <script type="text/javascript">
-            alert("Topic Id exits !");
-            window.location.replace("./add-topic.php?idl=<?= $idFaculty ?>");
+            alert("Submission Id exits !");
+            window.location.replace("./add-submission.php?idl=<?= $idFaculty ?>");
         </script>
     <?php
     } else {
-        $addFaculty = mysqli_query($conn, "INSERT INTO `topic` (`id`, `topic_id`, `topic_name`, `topic_description`, `topic_deadline`, `topic_of_faculty`) VALUES (NULL, '$_POST[topicId]', '$_POST[topicName]', '$_POST[topicDescription]', '$_POST[startDeadLine]', '$idFaculty');");
+        $addFaculty = mysqli_query($conn, "INSERT INTO `submission` (`id`, `submission_id`, `submission_name`, `submission_description`, `submission_deadline`, `submission_of_faculty`) VALUES (NULL, '$_POST[submissionId]', '$_POST[submissionName]', '$_POST[submissionDescription]', '$_POST[startDeadLine]', '$idFaculty');");
     ?>
         <script type="text/javascript">
             alert("add faculty success !");
-            window.location.replace("./add-topic.php?idl=<?= $idFaculty ?>");
+            window.location.replace("./add-submission.php?idl=<?= $idFaculty ?>");
         </script>
 <?php
     }

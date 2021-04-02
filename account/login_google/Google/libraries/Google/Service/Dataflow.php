@@ -32,15 +32,15 @@ class Google_Service_Dataflow extends Google_Service
 {
   /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM =
-      "https://www.googleapis.com/auth/cloud-platform";
+  "https://www.googleapis.com/auth/cloud-platform";
   /** View your email address. */
   const USERINFO_EMAIL =
-      "https://www.googleapis.com/auth/userinfo.email";
+  "https://www.googleapis.com/auth/userinfo.email";
 
   public $projects_jobs;
   public $projects_jobs_messages;
   public $projects_jobs_workItems;
-  
+
 
   /**
    * Constructs the internal representation of the Dataflow service.
@@ -56,207 +56,207 @@ class Google_Service_Dataflow extends Google_Service
     $this->serviceName = 'dataflow';
 
     $this->projects_jobs = new Google_Service_Dataflow_ProjectsJobs_Resource(
-        $this,
-        $this->serviceName,
-        'jobs',
-        array(
-          'methods' => array(
-            'create' => array(
-              'path' => '{projectId}/jobs',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'projectId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'replaceJobId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'view' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'jobs',
+      array(
+        'methods' => array(
+          'create' => array(
+            'path' => '{projectId}/jobs',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'projectId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
-            ),'get' => array(
-              'path' => '{projectId}/jobs/{jobId}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'projectId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'jobId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'view' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'replaceJobId' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
-            ),'getMetrics' => array(
-              'path' => '{projectId}/jobs/{jobId}/metrics',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'projectId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'jobId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'startTime' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'list' => array(
-              'path' => '{projectId}/jobs',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'projectId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'view' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-              ),
-            ),'patch' => array(
-              'path' => '{projectId}/jobs/{jobId}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'projectId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'jobId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'update' => array(
-              'path' => '{projectId}/jobs/{jobId}',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'projectId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'jobId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+              'view' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ), 'get' => array(
+            'path' => '{projectId}/jobs/{jobId}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'projectId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'jobId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'view' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'getMetrics' => array(
+            'path' => '{projectId}/jobs/{jobId}/metrics',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'projectId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'jobId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'startTime' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'list' => array(
+            'path' => '{projectId}/jobs',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'projectId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'view' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+            ),
+          ), 'patch' => array(
+            'path' => '{projectId}/jobs/{jobId}',
+            'httpMethod' => 'PATCH',
+            'parameters' => array(
+              'projectId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'jobId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'update' => array(
+            'path' => '{projectId}/jobs/{jobId}',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+              'projectId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'jobId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->projects_jobs_messages = new Google_Service_Dataflow_ProjectsJobsMessages_Resource(
-        $this,
-        $this->serviceName,
-        'messages',
-        array(
-          'methods' => array(
-            'list' => array(
-              'path' => '{projectId}/jobs/{jobId}/messages',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'projectId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'jobId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'startTime' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'endTime' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'minimumImportance' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'messages',
+      array(
+        'methods' => array(
+          'list' => array(
+            'path' => '{projectId}/jobs/{jobId}/messages',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'projectId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'jobId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'startTime' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'endTime' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'minimumImportance' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ),
         )
+      )
     );
     $this->projects_jobs_workItems = new Google_Service_Dataflow_ProjectsJobsWorkItems_Resource(
-        $this,
-        $this->serviceName,
-        'workItems',
-        array(
-          'methods' => array(
-            'lease' => array(
-              'path' => '{projectId}/jobs/{jobId}/workItems:lease',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'projectId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'jobId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'workItems',
+      array(
+        'methods' => array(
+          'lease' => array(
+            'path' => '{projectId}/jobs/{jobId}/workItems:lease',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'projectId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
-            ),'reportStatus' => array(
-              'path' => '{projectId}/jobs/{jobId}/workItems:reportStatus',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'projectId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'jobId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+              'jobId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'reportStatus' => array(
+            'path' => '{projectId}/jobs/{jobId}/workItems:reportStatus',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'projectId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'jobId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
   }
 }
@@ -471,8 +471,7 @@ class Google_Service_Dataflow_ProjectsJobsWorkItems_Resource extends Google_Serv
 
 class Google_Service_Dataflow_ApproximateProgress extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $percentComplete;
   protected $positionType = 'Google_Service_Dataflow_Position';
   protected $positionDataType = '';
@@ -507,8 +506,7 @@ class Google_Service_Dataflow_ApproximateProgress extends Google_Model
 
 class Google_Service_Dataflow_AutoscalingSettings extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $algorithm;
   public $maxNumWorkers;
 
@@ -534,8 +532,7 @@ class Google_Service_Dataflow_AutoscalingSettings extends Google_Model
 class Google_Service_Dataflow_ComputationTopology extends Google_Collection
 {
   protected $collection_key = 'outputs';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $computationId;
   protected $inputsType = 'Google_Service_Dataflow_StreamLocation';
   protected $inputsDataType = 'array';
@@ -582,8 +579,7 @@ class Google_Service_Dataflow_ComputationTopology extends Google_Collection
 class Google_Service_Dataflow_DataDiskAssignment extends Google_Collection
 {
   protected $collection_key = 'dataDisks';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $dataDisks;
   public $vmInstance;
 
@@ -608,8 +604,7 @@ class Google_Service_Dataflow_DataDiskAssignment extends Google_Collection
 
 class Google_Service_Dataflow_DerivedSource extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $derivationMode;
   protected $sourceType = 'Google_Service_Dataflow_Source';
   protected $sourceDataType = '';
@@ -635,8 +630,7 @@ class Google_Service_Dataflow_DerivedSource extends Google_Model
 
 class Google_Service_Dataflow_Disk extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $diskType;
   public $mountPoint;
   public $sizeGb;
@@ -670,8 +664,7 @@ class Google_Service_Dataflow_Disk extends Google_Model
 
 class Google_Service_Dataflow_DynamicSourceSplit extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $primaryType = 'Google_Service_Dataflow_DerivedSource';
   protected $primaryDataType = '';
   protected $residualType = 'Google_Service_Dataflow_DerivedSource';
@@ -699,8 +692,7 @@ class Google_Service_Dataflow_DynamicSourceSplit extends Google_Model
 class Google_Service_Dataflow_Environment extends Google_Collection
 {
   protected $collection_key = 'workerPools';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $clusterManagerApiService;
   public $dataset;
   public $experiments;
@@ -793,8 +785,7 @@ class Google_Service_Dataflow_EnvironmentVersion extends Google_Model
 class Google_Service_Dataflow_FlattenInstruction extends Google_Collection
 {
   protected $collection_key = 'inputs';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $inputsType = 'Google_Service_Dataflow_InstructionInput';
   protected $inputsDataType = 'array';
 
@@ -811,8 +802,7 @@ class Google_Service_Dataflow_FlattenInstruction extends Google_Collection
 
 class Google_Service_Dataflow_InstructionInput extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $outputNum;
   public $producerInstructionIndex;
 
@@ -837,8 +827,7 @@ class Google_Service_Dataflow_InstructionInput extends Google_Model
 
 class Google_Service_Dataflow_InstructionOutput extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $codec;
   public $name;
 
@@ -868,8 +857,7 @@ class Google_Service_Dataflow_InstructionOutputCodec extends Google_Model
 class Google_Service_Dataflow_Job extends Google_Collection
 {
   protected $collection_key = 'steps';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $clientRequestId;
   public $createTime;
   public $currentState;
@@ -1005,8 +993,7 @@ class Google_Service_Dataflow_Job extends Google_Collection
 
 class Google_Service_Dataflow_JobExecutionInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $stagesType = 'Google_Service_Dataflow_JobExecutionStageInfo';
   protected $stagesDataType = 'map';
 
@@ -1028,8 +1015,7 @@ class Google_Service_Dataflow_JobExecutionInfoStages extends Google_Model
 class Google_Service_Dataflow_JobExecutionStageInfo extends Google_Collection
 {
   protected $collection_key = 'stepName';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $stepName;
 
 
@@ -1045,8 +1031,7 @@ class Google_Service_Dataflow_JobExecutionStageInfo extends Google_Collection
 
 class Google_Service_Dataflow_JobMessage extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $id;
   public $messageImportance;
   public $messageText;
@@ -1090,8 +1075,7 @@ class Google_Service_Dataflow_JobMessage extends Google_Model
 class Google_Service_Dataflow_JobMetrics extends Google_Collection
 {
   protected $collection_key = 'metrics';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $metricTime;
   protected $metricsType = 'Google_Service_Dataflow_MetricUpdate';
   protected $metricsDataType = 'array';
@@ -1121,8 +1105,7 @@ class Google_Service_Dataflow_JobTransformNameMapping extends Google_Model
 
 class Google_Service_Dataflow_KeyRangeDataDiskAssignment extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $dataDisk;
   public $end;
   public $start;
@@ -1156,8 +1139,7 @@ class Google_Service_Dataflow_KeyRangeDataDiskAssignment extends Google_Model
 
 class Google_Service_Dataflow_KeyRangeLocation extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $dataDisk;
   public $deliveryEndpoint;
   public $end;
@@ -1210,8 +1192,7 @@ class Google_Service_Dataflow_KeyRangeLocation extends Google_Model
 class Google_Service_Dataflow_LeaseWorkItemRequest extends Google_Collection
 {
   protected $collection_key = 'workerCapabilities';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $currentWorkerTime;
   public $requestedLeaseDuration;
   public $workItemTypes;
@@ -1264,8 +1245,7 @@ class Google_Service_Dataflow_LeaseWorkItemRequest extends Google_Collection
 class Google_Service_Dataflow_LeaseWorkItemResponse extends Google_Collection
 {
   protected $collection_key = 'workItems';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $workItemsType = 'Google_Service_Dataflow_WorkItem';
   protected $workItemsDataType = 'array';
 
@@ -1283,8 +1263,7 @@ class Google_Service_Dataflow_LeaseWorkItemResponse extends Google_Collection
 class Google_Service_Dataflow_ListJobMessagesResponse extends Google_Collection
 {
   protected $collection_key = 'jobMessages';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $jobMessagesType = 'Google_Service_Dataflow_JobMessage';
   protected $jobMessagesDataType = 'array';
   public $nextPageToken;
@@ -1311,8 +1290,7 @@ class Google_Service_Dataflow_ListJobMessagesResponse extends Google_Collection
 class Google_Service_Dataflow_ListJobsResponse extends Google_Collection
 {
   protected $collection_key = 'jobs';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $jobsType = 'Google_Service_Dataflow_Job';
   protected $jobsDataType = 'array';
   public $nextPageToken;
@@ -1339,8 +1317,7 @@ class Google_Service_Dataflow_ListJobsResponse extends Google_Collection
 class Google_Service_Dataflow_MapTask extends Google_Collection
 {
   protected $collection_key = 'instructions';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $instructionsType = 'Google_Service_Dataflow_ParallelInstruction';
   protected $instructionsDataType = 'array';
   public $stageName;
@@ -1375,8 +1352,7 @@ class Google_Service_Dataflow_MapTask extends Google_Collection
 
 class Google_Service_Dataflow_MetricStructuredName extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $context;
   public $name;
   public $origin;
@@ -1414,8 +1390,7 @@ class Google_Service_Dataflow_MetricStructuredNameContext extends Google_Model
 
 class Google_Service_Dataflow_MetricUpdate extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $cumulative;
   public $internal;
   public $kind;
@@ -1504,8 +1479,7 @@ class Google_Service_Dataflow_MetricUpdate extends Google_Model
 
 class Google_Service_Dataflow_MountedDataDisk extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $dataDisk;
 
 
@@ -1521,8 +1495,7 @@ class Google_Service_Dataflow_MountedDataDisk extends Google_Model
 
 class Google_Service_Dataflow_MultiOutputInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $tag;
 
 
@@ -1538,8 +1511,7 @@ class Google_Service_Dataflow_MultiOutputInfo extends Google_Model
 
 class Google_Service_Dataflow_Package extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $location;
   public $name;
 
@@ -1565,8 +1537,7 @@ class Google_Service_Dataflow_Package extends Google_Model
 class Google_Service_Dataflow_ParDoInstruction extends Google_Collection
 {
   protected $collection_key = 'sideInputs';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $inputType = 'Google_Service_Dataflow_InstructionInput';
   protected $inputDataType = '';
   protected $multiOutputInfosType = 'Google_Service_Dataflow_MultiOutputInfo';
@@ -1626,8 +1597,7 @@ class Google_Service_Dataflow_ParDoInstructionUserFn extends Google_Model
 class Google_Service_Dataflow_ParallelInstruction extends Google_Collection
 {
   protected $collection_key = 'outputs';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $flattenType = 'Google_Service_Dataflow_FlattenInstruction';
   protected $flattenDataType = '';
   public $name;
@@ -1712,8 +1682,7 @@ class Google_Service_Dataflow_ParallelInstruction extends Google_Collection
 
 class Google_Service_Dataflow_PartialGroupByKeyInstruction extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $inputType = 'Google_Service_Dataflow_InstructionInput';
   protected $inputDataType = '';
   public $inputElementCodec;
@@ -1756,8 +1725,7 @@ class Google_Service_Dataflow_PartialGroupByKeyInstructionValueCombiningFn exten
 
 class Google_Service_Dataflow_Position extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $byteOffset;
   public $end;
   public $key;
@@ -1809,13 +1777,12 @@ class Google_Service_Dataflow_Position extends Google_Model
 
 class Google_Service_Dataflow_PubsubLocation extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $dropLateData;
   public $idLabel;
   public $subscription;
   public $timestampLabel;
-  public $topic;
+  public $submission;
   public $trackingSubscription;
 
 
@@ -1851,13 +1818,13 @@ class Google_Service_Dataflow_PubsubLocation extends Google_Model
   {
     return $this->timestampLabel;
   }
-  public function setTopic($topic)
+  public function setSubmission($submission)
   {
-    $this->topic = $topic;
+    $this->submission = $submission;
   }
-  public function getTopic()
+  public function getSubmission()
   {
-    return $this->topic;
+    return $this->submission;
   }
   public function setTrackingSubscription($trackingSubscription)
   {
@@ -1871,8 +1838,7 @@ class Google_Service_Dataflow_PubsubLocation extends Google_Model
 
 class Google_Service_Dataflow_ReadInstruction extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $sourceType = 'Google_Service_Dataflow_Source';
   protected $sourceDataType = '';
 
@@ -1890,8 +1856,7 @@ class Google_Service_Dataflow_ReadInstruction extends Google_Model
 class Google_Service_Dataflow_ReportWorkItemStatusRequest extends Google_Collection
 {
   protected $collection_key = 'workItemStatuses';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $currentWorkerTime;
   protected $workItemStatusesType = 'Google_Service_Dataflow_WorkItemStatus';
   protected $workItemStatusesDataType = 'array';
@@ -1927,8 +1892,7 @@ class Google_Service_Dataflow_ReportWorkItemStatusRequest extends Google_Collect
 class Google_Service_Dataflow_ReportWorkItemStatusResponse extends Google_Collection
 {
   protected $collection_key = 'workItemServiceStates';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $workItemServiceStatesType = 'Google_Service_Dataflow_WorkItemServiceState';
   protected $workItemServiceStatesDataType = 'array';
 
@@ -1946,8 +1910,7 @@ class Google_Service_Dataflow_ReportWorkItemStatusResponse extends Google_Collec
 class Google_Service_Dataflow_SeqMapTask extends Google_Collection
 {
   protected $collection_key = 'outputInfos';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $inputsType = 'Google_Service_Dataflow_SideInputInfo';
   protected $inputsDataType = 'array';
   public $name;
@@ -2010,8 +1973,7 @@ class Google_Service_Dataflow_SeqMapTask extends Google_Collection
 
 class Google_Service_Dataflow_SeqMapTaskOutputInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $sinkType = 'Google_Service_Dataflow_Sink';
   protected $sinkDataType = '';
   public $tag;
@@ -2041,8 +2003,7 @@ class Google_Service_Dataflow_SeqMapTaskUserFn extends Google_Model
 
 class Google_Service_Dataflow_ShellTask extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $command;
   public $exitCode;
 
@@ -2068,8 +2029,7 @@ class Google_Service_Dataflow_ShellTask extends Google_Model
 class Google_Service_Dataflow_SideInputInfo extends Google_Collection
 {
   protected $collection_key = 'sources';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $kind;
   protected $sourcesType = 'Google_Service_Dataflow_Source';
   protected $sourcesDataType = 'array';
@@ -2108,8 +2068,7 @@ class Google_Service_Dataflow_SideInputInfoKind extends Google_Model
 
 class Google_Service_Dataflow_Sink extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $codec;
   public $spec;
 
@@ -2143,8 +2102,7 @@ class Google_Service_Dataflow_SinkSpec extends Google_Model
 class Google_Service_Dataflow_Source extends Google_Collection
 {
   protected $collection_key = 'baseSpecs';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $baseSpecs;
   public $codec;
   public $doesNotNeedSplitting;
@@ -2205,8 +2163,7 @@ class Google_Service_Dataflow_SourceCodec extends Google_Model
 
 class Google_Service_Dataflow_SourceFork extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $primaryType = 'Google_Service_Dataflow_SourceSplitShard';
   protected $primaryDataType = '';
   protected $primarySourceType = 'Google_Service_Dataflow_DerivedSource';
@@ -2253,8 +2210,7 @@ class Google_Service_Dataflow_SourceFork extends Google_Model
 
 class Google_Service_Dataflow_SourceGetMetadataRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $sourceType = 'Google_Service_Dataflow_Source';
   protected $sourceDataType = '';
 
@@ -2271,8 +2227,7 @@ class Google_Service_Dataflow_SourceGetMetadataRequest extends Google_Model
 
 class Google_Service_Dataflow_SourceGetMetadataResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $metadataType = 'Google_Service_Dataflow_SourceMetadata';
   protected $metadataDataType = '';
 
@@ -2289,8 +2244,7 @@ class Google_Service_Dataflow_SourceGetMetadataResponse extends Google_Model
 
 class Google_Service_Dataflow_SourceMetadata extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $estimatedSizeBytes;
   public $infinite;
   public $producesSortedKeys;
@@ -2324,8 +2278,7 @@ class Google_Service_Dataflow_SourceMetadata extends Google_Model
 
 class Google_Service_Dataflow_SourceOperationRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $getMetadataType = 'Google_Service_Dataflow_SourceGetMetadataRequest';
   protected $getMetadataDataType = '';
   protected $splitType = 'Google_Service_Dataflow_SourceSplitRequest';
@@ -2352,8 +2305,7 @@ class Google_Service_Dataflow_SourceOperationRequest extends Google_Model
 
 class Google_Service_Dataflow_SourceOperationResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $getMetadataType = 'Google_Service_Dataflow_SourceGetMetadataResponse';
   protected $getMetadataDataType = '';
   protected $splitType = 'Google_Service_Dataflow_SourceSplitResponse';
@@ -2384,8 +2336,7 @@ class Google_Service_Dataflow_SourceSpec extends Google_Model
 
 class Google_Service_Dataflow_SourceSplitOptions extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $desiredBundleSizeBytes;
   public $desiredShardSizeBytes;
 
@@ -2410,8 +2361,7 @@ class Google_Service_Dataflow_SourceSplitOptions extends Google_Model
 
 class Google_Service_Dataflow_SourceSplitRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $optionsType = 'Google_Service_Dataflow_SourceSplitOptions';
   protected $optionsDataType = '';
   protected $sourceType = 'Google_Service_Dataflow_Source';
@@ -2439,8 +2389,7 @@ class Google_Service_Dataflow_SourceSplitRequest extends Google_Model
 class Google_Service_Dataflow_SourceSplitResponse extends Google_Collection
 {
   protected $collection_key = 'shards';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $bundlesType = 'Google_Service_Dataflow_DerivedSource';
   protected $bundlesDataType = 'array';
   public $outcome;
@@ -2476,8 +2425,7 @@ class Google_Service_Dataflow_SourceSplitResponse extends Google_Collection
 
 class Google_Service_Dataflow_SourceSplitShard extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $derivationMode;
   protected $sourceType = 'Google_Service_Dataflow_Source';
   protected $sourceDataType = '';
@@ -2504,8 +2452,7 @@ class Google_Service_Dataflow_SourceSplitShard extends Google_Model
 class Google_Service_Dataflow_Status extends Google_Collection
 {
   protected $collection_key = 'details';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $code;
   public $details;
   public $message;
@@ -2543,8 +2490,7 @@ class Google_Service_Dataflow_StatusDetails extends Google_Model
 
 class Google_Service_Dataflow_Step extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $kind;
   public $name;
   public $properties;
@@ -2582,8 +2528,7 @@ class Google_Service_Dataflow_StepProperties extends Google_Model
 
 class Google_Service_Dataflow_StreamLocation extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $pubsubLocationType = 'Google_Service_Dataflow_PubsubLocation';
   protected $pubsubLocationDataType = '';
   protected $sideInputLocationType = 'Google_Service_Dataflow_StreamingSideInputLocation';
@@ -2621,8 +2566,7 @@ class Google_Service_Dataflow_StreamLocation extends Google_Model
 class Google_Service_Dataflow_StreamingComputationRanges extends Google_Collection
 {
   protected $collection_key = 'rangeAssignments';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $computationId;
   protected $rangeAssignmentsType = 'Google_Service_Dataflow_KeyRangeDataDiskAssignment';
   protected $rangeAssignmentsDataType = 'array';
@@ -2649,8 +2593,7 @@ class Google_Service_Dataflow_StreamingComputationRanges extends Google_Collecti
 class Google_Service_Dataflow_StreamingComputationTask extends Google_Collection
 {
   protected $collection_key = 'dataDisks';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $computationRangesType = 'Google_Service_Dataflow_StreamingComputationRanges';
   protected $computationRangesDataType = 'array';
   protected $dataDisksType = 'Google_Service_Dataflow_MountedDataDisk';
@@ -2686,8 +2629,7 @@ class Google_Service_Dataflow_StreamingComputationTask extends Google_Collection
 
 class Google_Service_Dataflow_StreamingSetupTask extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $receiveWorkPort;
   protected $streamingComputationTopologyType = 'Google_Service_Dataflow_TopologyConfig';
   protected $streamingComputationTopologyDataType = '';
@@ -2722,8 +2664,7 @@ class Google_Service_Dataflow_StreamingSetupTask extends Google_Model
 
 class Google_Service_Dataflow_StreamingSideInputLocation extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $tag;
 
 
@@ -2739,8 +2680,7 @@ class Google_Service_Dataflow_StreamingSideInputLocation extends Google_Model
 
 class Google_Service_Dataflow_StreamingStageLocation extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $streamId;
 
 
@@ -2757,8 +2697,7 @@ class Google_Service_Dataflow_StreamingStageLocation extends Google_Model
 class Google_Service_Dataflow_TaskRunnerSettings extends Google_Collection
 {
   protected $collection_key = 'oauthScopes';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $alsologtostderr;
   public $baseTaskDir;
   public $baseUrl;
@@ -2938,8 +2877,7 @@ class Google_Service_Dataflow_TaskRunnerSettings extends Google_Collection
 class Google_Service_Dataflow_TopologyConfig extends Google_Collection
 {
   protected $collection_key = 'dataDiskAssignments';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $computationsType = 'Google_Service_Dataflow_ComputationTopology';
   protected $computationsDataType = 'array';
   protected $dataDiskAssignmentsType = 'Google_Service_Dataflow_DataDiskAssignment';
@@ -2967,8 +2905,7 @@ class Google_Service_Dataflow_TopologyConfig extends Google_Collection
 class Google_Service_Dataflow_WorkItem extends Google_Collection
 {
   protected $collection_key = 'packages';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $configuration;
   public $id;
   public $initialReportIndex;
@@ -3108,8 +3045,7 @@ class Google_Service_Dataflow_WorkItem extends Google_Collection
 
 class Google_Service_Dataflow_WorkItemServiceState extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $harnessData;
   public $leaseExpireTime;
   public $nextReportIndex;
@@ -3177,8 +3113,7 @@ class Google_Service_Dataflow_WorkItemServiceStateHarnessData extends Google_Mod
 class Google_Service_Dataflow_WorkItemStatus extends Google_Collection
 {
   protected $collection_key = 'metricUpdates';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $completed;
   protected $dynamicSourceSplitType = 'Google_Service_Dataflow_DynamicSourceSplit';
   protected $dynamicSourceSplitDataType = '';
@@ -3292,8 +3227,7 @@ class Google_Service_Dataflow_WorkItemStatus extends Google_Collection
 class Google_Service_Dataflow_WorkerPool extends Google_Collection
 {
   protected $collection_key = 'packages';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $autoscalingSettingsType = 'Google_Service_Dataflow_AutoscalingSettings';
   protected $autoscalingSettingsDataType = '';
   protected $dataDisksType = 'Google_Service_Dataflow_Disk';
@@ -3465,8 +3399,7 @@ class Google_Service_Dataflow_WorkerPoolPoolArgs extends Google_Model
 
 class Google_Service_Dataflow_WorkerSettings extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $baseUrl;
   public $reportingEnabled;
   public $servicePath;
@@ -3527,8 +3460,7 @@ class Google_Service_Dataflow_WorkerSettings extends Google_Model
 
 class Google_Service_Dataflow_WriteInstruction extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $inputType = 'Google_Service_Dataflow_InstructionInput';
   protected $inputDataType = '';
   protected $sinkType = 'Google_Service_Dataflow_Sink';

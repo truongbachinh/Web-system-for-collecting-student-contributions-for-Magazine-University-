@@ -38,7 +38,7 @@ $pageTitle = "CMS";
                                 </h3>
                             </div>
                         </div>
-                        <!-- Name of topic -->
+                        <!-- Name of submission -->
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="card m-b-30">

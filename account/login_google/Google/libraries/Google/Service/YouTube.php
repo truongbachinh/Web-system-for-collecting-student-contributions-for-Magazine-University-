@@ -32,22 +32,22 @@ class Google_Service_YouTube extends Google_Service
 {
   /** Manage your YouTube account. */
   const YOUTUBE =
-      "https://www.googleapis.com/auth/youtube";
+  "https://www.googleapis.com/auth/youtube";
   /** Manage your YouTube account. */
   const YOUTUBE_FORCE_SSL =
-      "https://www.googleapis.com/auth/youtube.force-ssl";
+  "https://www.googleapis.com/auth/youtube.force-ssl";
   /** View your YouTube account. */
   const YOUTUBE_READONLY =
-      "https://www.googleapis.com/auth/youtube.readonly";
+  "https://www.googleapis.com/auth/youtube.readonly";
   /** Manage your YouTube videos. */
   const YOUTUBE_UPLOAD =
-      "https://www.googleapis.com/auth/youtube.upload";
+  "https://www.googleapis.com/auth/youtube.upload";
   /** View and manage your assets and associated content on YouTube. */
   const YOUTUBEPARTNER =
-      "https://www.googleapis.com/auth/youtubepartner";
+  "https://www.googleapis.com/auth/youtubepartner";
   /** View private information of your YouTube channel relevant during the audit process with a YouTube partner. */
   const YOUTUBEPARTNER_CHANNEL_AUDIT =
-      "https://www.googleapis.com/auth/youtubepartner-channel-audit";
+  "https://www.googleapis.com/auth/youtubepartner-channel-audit";
 
   public $activities;
   public $captions;
@@ -70,7 +70,7 @@ class Google_Service_YouTube extends Google_Service
   public $videoCategories;
   public $videos;
   public $watermarks;
-  
+
 
   /**
    * Constructs the internal representation of the YouTube service.
@@ -86,1617 +86,1617 @@ class Google_Service_YouTube extends Google_Service
     $this->serviceName = 'youtube';
 
     $this->activities = new Google_Service_YouTube_Activities_Resource(
-        $this,
-        $this->serviceName,
-        'activities',
-        array(
-          'methods' => array(
-            'insert' => array(
-              'path' => 'activities',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'activities',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'regionCode' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'publishedBefore' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'channelId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'mine' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'home' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'publishedAfter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'activities',
+      array(
+        'methods' => array(
+          'insert' => array(
+            'path' => 'activities',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'list' => array(
+            'path' => 'activities',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'regionCode' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'publishedBefore' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'channelId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'mine' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'maxResults' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'home' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'publishedAfter' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->captions = new Google_Service_YouTube_Captions_Resource(
-        $this,
-        $this->serviceName,
-        'captions',
-        array(
-          'methods' => array(
-            'delete' => array(
-              'path' => 'captions',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOf' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'debugProjectIdOverride' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'captions',
+      array(
+        'methods' => array(
+          'delete' => array(
+            'path' => 'captions',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
               ),
-            ),'download' => array(
-              'path' => 'captions/{id}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOf' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'debugProjectIdOverride' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'tfmt' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'tlang' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
-            ),'insert' => array(
-              'path' => 'captions',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'sync' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'onBehalfOf' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'debugProjectIdOverride' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'onBehalfOf' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
-            ),'list' => array(
-              'path' => 'captions',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'videoId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOf' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'debugProjectIdOverride' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'update' => array(
-              'path' => 'captions',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'sync' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'onBehalfOf' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'debugProjectIdOverride' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'debugProjectIdOverride' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ), 'download' => array(
+            'path' => 'captions/{id}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOf' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'debugProjectIdOverride' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'tfmt' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'tlang' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'insert' => array(
+            'path' => 'captions',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'sync' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'onBehalfOf' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'debugProjectIdOverride' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'captions',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'videoId' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOf' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'debugProjectIdOverride' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'update' => array(
+            'path' => 'captions',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'sync' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'onBehalfOf' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'debugProjectIdOverride' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->channelBanners = new Google_Service_YouTube_ChannelBanners_Resource(
-        $this,
-        $this->serviceName,
-        'channelBanners',
-        array(
-          'methods' => array(
-            'insert' => array(
-              'path' => 'channelBanners/insert',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'channelBanners',
+      array(
+        'methods' => array(
+          'insert' => array(
+            'path' => 'channelBanners/insert',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ),
         )
+      )
     );
     $this->channelSections = new Google_Service_YouTube_ChannelSections_Resource(
-        $this,
-        $this->serviceName,
-        'channelSections',
-        array(
-          'methods' => array(
-            'delete' => array(
-              'path' => 'channelSections',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'channelSections',
+      array(
+        'methods' => array(
+          'delete' => array(
+            'path' => 'channelSections',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
               ),
-            ),'insert' => array(
-              'path' => 'channelSections',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwnerChannel' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'channelSections',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'channelId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'mine' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'hl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'update' => array(
-              'path' => 'channelSections',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ), 'insert' => array(
+            'path' => 'channelSections',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwnerChannel' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'channelSections',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'channelId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'mine' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'hl' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'update' => array(
+            'path' => 'channelSections',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->channels = new Google_Service_YouTube_Channels_Resource(
-        $this,
-        $this->serviceName,
-        'channels',
-        array(
-          'methods' => array(
-            'list' => array(
-              'path' => 'channels',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'managedByMe' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'forUsername' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'mine' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'mySubscribers' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'hl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'categoryId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'channels',
+      array(
+        'methods' => array(
+          'list' => array(
+            'path' => 'channels',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
               ),
-            ),'update' => array(
-              'path' => 'channels',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'managedByMe' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'forUsername' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'mine' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'maxResults' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'mySubscribers' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'hl' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'categoryId' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ), 'update' => array(
+            'path' => 'channels',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->commentThreads = new Google_Service_YouTube_CommentThreads_Resource(
-        $this,
-        $this->serviceName,
-        'commentThreads',
-        array(
-          'methods' => array(
-            'insert' => array(
-              'path' => 'commentThreads',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'shareOnGooglePlus' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
+      $this,
+      $this->serviceName,
+      'commentThreads',
+      array(
+        'methods' => array(
+          'insert' => array(
+            'path' => 'commentThreads',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
               ),
-            ),'list' => array(
-              'path' => 'commentThreads',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'searchTerms' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'allThreadsRelatedToChannelId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'channelId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'videoId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'moderationStatus' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'textFormat' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'order' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'update' => array(
-              'path' => 'commentThreads',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+              'shareOnGooglePlus' => array(
+                'location' => 'query',
+                'type' => 'boolean',
               ),
             ),
-          )
+          ), 'list' => array(
+            'path' => 'commentThreads',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'searchTerms' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'allThreadsRelatedToChannelId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'channelId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'videoId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'maxResults' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'moderationStatus' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'textFormat' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'order' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'update' => array(
+            'path' => 'commentThreads',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->comments = new Google_Service_YouTube_Comments_Resource(
-        $this,
-        $this->serviceName,
-        'comments',
-        array(
-          'methods' => array(
-            'delete' => array(
-              'path' => 'comments',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'insert' => array(
-              'path' => 'comments',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'comments',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'parentId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'textFormat' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'markAsSpam' => array(
-              'path' => 'comments/markAsSpam',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'setModerationStatus' => array(
-              'path' => 'comments/setModerationStatus',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'moderationStatus' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'banAuthor' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-              ),
-            ),'update' => array(
-              'path' => 'comments',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'comments',
+      array(
+        'methods' => array(
+          'delete' => array(
+            'path' => 'comments',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'insert' => array(
+            'path' => 'comments',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'comments',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'maxResults' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'parentId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'textFormat' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'markAsSpam' => array(
+            'path' => 'comments/markAsSpam',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'setModerationStatus' => array(
+            'path' => 'comments/setModerationStatus',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'moderationStatus' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'banAuthor' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+            ),
+          ), 'update' => array(
+            'path' => 'comments',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->guideCategories = new Google_Service_YouTube_GuideCategories_Resource(
-        $this,
-        $this->serviceName,
-        'guideCategories',
-        array(
-          'methods' => array(
-            'list' => array(
-              'path' => 'guideCategories',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'regionCode' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'hl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'guideCategories',
+      array(
+        'methods' => array(
+          'list' => array(
+            'path' => 'guideCategories',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'regionCode' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'hl' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ),
         )
+      )
     );
     $this->i18nLanguages = new Google_Service_YouTube_I18nLanguages_Resource(
-        $this,
-        $this->serviceName,
-        'i18nLanguages',
-        array(
-          'methods' => array(
-            'list' => array(
-              'path' => 'i18nLanguages',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'hl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'i18nLanguages',
+      array(
+        'methods' => array(
+          'list' => array(
+            'path' => 'i18nLanguages',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'hl' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ),
         )
+      )
     );
     $this->i18nRegions = new Google_Service_YouTube_I18nRegions_Resource(
-        $this,
-        $this->serviceName,
-        'i18nRegions',
-        array(
-          'methods' => array(
-            'list' => array(
-              'path' => 'i18nRegions',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'hl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'i18nRegions',
+      array(
+        'methods' => array(
+          'list' => array(
+            'path' => 'i18nRegions',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'hl' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ),
         )
+      )
     );
     $this->liveBroadcasts = new Google_Service_YouTube_LiveBroadcasts_Resource(
-        $this,
-        $this->serviceName,
-        'liveBroadcasts',
-        array(
-          'methods' => array(
-            'bind' => array(
-              'path' => 'liveBroadcasts/bind',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwnerChannel' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'streamId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'liveBroadcasts',
+      array(
+        'methods' => array(
+          'bind' => array(
+            'path' => 'liveBroadcasts/bind',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
               ),
-            ),'control' => array(
-              'path' => 'liveBroadcasts/control',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'displaySlate' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'onBehalfOfContentOwnerChannel' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'offsetTimeMs' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'walltime' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
               ),
-            ),'delete' => array(
-              'path' => 'liveBroadcasts',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwnerChannel' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'onBehalfOfContentOwnerChannel' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
-            ),'insert' => array(
-              'path' => 'liveBroadcasts',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwnerChannel' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
-            ),'list' => array(
-              'path' => 'liveBroadcasts',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'broadcastStatus' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwnerChannel' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'mine' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'transition' => array(
-              'path' => 'liveBroadcasts/transition',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'broadcastStatus' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwnerChannel' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'update' => array(
-              'path' => 'liveBroadcasts',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwnerChannel' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'streamId' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ), 'control' => array(
+            'path' => 'liveBroadcasts/control',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'displaySlate' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'onBehalfOfContentOwnerChannel' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'offsetTimeMs' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'walltime' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'delete' => array(
+            'path' => 'liveBroadcasts',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwnerChannel' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'insert' => array(
+            'path' => 'liveBroadcasts',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwnerChannel' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'liveBroadcasts',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'broadcastStatus' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOfContentOwnerChannel' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'mine' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'maxResults' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'transition' => array(
+            'path' => 'liveBroadcasts/transition',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'broadcastStatus' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwnerChannel' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'update' => array(
+            'path' => 'liveBroadcasts',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwnerChannel' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->liveStreams = new Google_Service_YouTube_LiveStreams_Resource(
-        $this,
-        $this->serviceName,
-        'liveStreams',
-        array(
-          'methods' => array(
-            'delete' => array(
-              'path' => 'liveStreams',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwnerChannel' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'liveStreams',
+      array(
+        'methods' => array(
+          'delete' => array(
+            'path' => 'liveStreams',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
               ),
-            ),'insert' => array(
-              'path' => 'liveStreams',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwnerChannel' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'onBehalfOfContentOwnerChannel' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
-            ),'list' => array(
-              'path' => 'liveStreams',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwnerChannel' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'mine' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'update' => array(
-              'path' => 'liveStreams',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwnerChannel' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ), 'insert' => array(
+            'path' => 'liveStreams',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwnerChannel' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'liveStreams',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOfContentOwnerChannel' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'mine' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'maxResults' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'update' => array(
+            'path' => 'liveStreams',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwnerChannel' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->playlistItems = new Google_Service_YouTube_PlaylistItems_Resource(
-        $this,
-        $this->serviceName,
-        'playlistItems',
-        array(
-          'methods' => array(
-            'delete' => array(
-              'path' => 'playlistItems',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'insert' => array(
-              'path' => 'playlistItems',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'playlistItems',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'playlistId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'videoId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'update' => array(
-              'path' => 'playlistItems',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'playlistItems',
+      array(
+        'methods' => array(
+          'delete' => array(
+            'path' => 'playlistItems',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'insert' => array(
+            'path' => 'playlistItems',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'playlistItems',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'playlistId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'videoId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'maxResults' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'update' => array(
+            'path' => 'playlistItems',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->playlists = new Google_Service_YouTube_Playlists_Resource(
-        $this,
-        $this->serviceName,
-        'playlists',
-        array(
-          'methods' => array(
-            'delete' => array(
-              'path' => 'playlists',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'playlists',
+      array(
+        'methods' => array(
+          'delete' => array(
+            'path' => 'playlists',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
               ),
-            ),'insert' => array(
-              'path' => 'playlists',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwnerChannel' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'playlists',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwnerChannel' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'channelId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'mine' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'hl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'update' => array(
-              'path' => 'playlists',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ), 'insert' => array(
+            'path' => 'playlists',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwnerChannel' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'playlists',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOfContentOwnerChannel' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'channelId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'mine' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'maxResults' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'hl' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'update' => array(
+            'path' => 'playlists',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->search = new Google_Service_YouTube_Search_Resource(
-        $this,
-        $this->serviceName,
-        'search',
-        array(
-          'methods' => array(
-            'list' => array(
-              'path' => 'search',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'eventType' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'channelId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'forDeveloper' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'videoSyndicated' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'channelType' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'videoCaption' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'publishedAfter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'forContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'regionCode' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'location' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'locationRadius' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'videoType' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'type' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'topicId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'publishedBefore' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'videoDimension' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'videoLicense' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'relatedToVideoId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'videoDefinition' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'videoDuration' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'relevanceLanguage' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'forMine' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'q' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'safeSearch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'videoEmbeddable' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'videoCategoryId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'order' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'search',
+      array(
+        'methods' => array(
+          'list' => array(
+            'path' => 'search',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'eventType' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'channelId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'forDeveloper' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'videoSyndicated' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'channelType' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'videoCaption' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'publishedAfter' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'forContentOwner' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'regionCode' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'location' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'locationRadius' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'videoType' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'type' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'submissionId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'publishedBefore' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'videoDimension' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'videoLicense' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'maxResults' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'relatedToVideoId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'videoDefinition' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'videoDuration' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'relevanceLanguage' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'forMine' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'q' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'safeSearch' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'videoEmbeddable' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'videoCategoryId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'order' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ),
         )
+      )
     );
     $this->subscriptions = new Google_Service_YouTube_Subscriptions_Resource(
-        $this,
-        $this->serviceName,
-        'subscriptions',
-        array(
-          'methods' => array(
-            'delete' => array(
-              'path' => 'subscriptions',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'insert' => array(
-              'path' => 'subscriptions',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'subscriptions',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onBehalfOfContentOwnerChannel' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'channelId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'mine' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'forChannelId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'mySubscribers' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'order' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'subscriptions',
+      array(
+        'methods' => array(
+          'delete' => array(
+            'path' => 'subscriptions',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'insert' => array(
+            'path' => 'subscriptions',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'subscriptions',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'onBehalfOfContentOwnerChannel' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'channelId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'mine' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'maxResults' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'forChannelId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'mySubscribers' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'order' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->thumbnails = new Google_Service_YouTube_Thumbnails_Resource(
-        $this,
-        $this->serviceName,
-        'thumbnails',
-        array(
-          'methods' => array(
-            'set' => array(
-              'path' => 'thumbnails/set',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'videoId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'thumbnails',
+      array(
+        'methods' => array(
+          'set' => array(
+            'path' => 'thumbnails/set',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'videoId' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ),
         )
+      )
     );
     $this->videoAbuseReportReasons = new Google_Service_YouTube_VideoAbuseReportReasons_Resource(
-        $this,
-        $this->serviceName,
-        'videoAbuseReportReasons',
-        array(
-          'methods' => array(
-            'list' => array(
-              'path' => 'videoAbuseReportReasons',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'hl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'videoAbuseReportReasons',
+      array(
+        'methods' => array(
+          'list' => array(
+            'path' => 'videoAbuseReportReasons',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'hl' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ),
         )
+      )
     );
     $this->videoCategories = new Google_Service_YouTube_VideoCategories_Resource(
-        $this,
-        $this->serviceName,
-        'videoCategories',
-        array(
-          'methods' => array(
-            'list' => array(
-              'path' => 'videoCategories',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'regionCode' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'hl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'videoCategories',
+      array(
+        'methods' => array(
+          'list' => array(
+            'path' => 'videoCategories',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'regionCode' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'hl' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ),
         )
+      )
     );
     $this->videos = new Google_Service_YouTube_Videos_Resource(
-        $this,
-        $this->serviceName,
-        'videos',
-        array(
-          'methods' => array(
-            'delete' => array(
-              'path' => 'videos',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'videos',
+      array(
+        'methods' => array(
+          'delete' => array(
+            'path' => 'videos',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
               ),
-            ),'getRating' => array(
-              'path' => 'videos/getRating',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'insert' => array(
-              'path' => 'videos',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'stabilize' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'onBehalfOfContentOwnerChannel' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'notifySubscribers' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'autoLevels' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'videos',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'regionCode' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'locale' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'videoCategoryId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'chart' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'debugProjectIdOverride' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'hl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'myRating' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'rate' => array(
-              'path' => 'videos/rate',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'rating' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'reportAbuse' => array(
-              'path' => 'videos/reportAbuse',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'update' => array(
-              'path' => 'videos',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ), 'getRating' => array(
+            'path' => 'videos/getRating',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'insert' => array(
+            'path' => 'videos',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'stabilize' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'onBehalfOfContentOwnerChannel' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'notifySubscribers' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'autoLevels' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'videos',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'regionCode' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'locale' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'videoCategoryId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'chart' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'maxResults' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'debugProjectIdOverride' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'hl' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'myRating' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'rate' => array(
+            'path' => 'videos/rate',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'id' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'rating' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'reportAbuse' => array(
+            'path' => 'videos/reportAbuse',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'update' => array(
+            'path' => 'videos',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+              'part' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->watermarks = new Google_Service_YouTube_Watermarks_Resource(
-        $this,
-        $this->serviceName,
-        'watermarks',
-        array(
-          'methods' => array(
-            'set' => array(
-              'path' => 'watermarks/set',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'channelId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'watermarks',
+      array(
+        'methods' => array(
+          'set' => array(
+            'path' => 'watermarks/set',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'channelId' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
               ),
-            ),'unset' => array(
-              'path' => 'watermarks/unset',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'channelId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ), 'unset' => array(
+            'path' => 'watermarks/unset',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'channelId' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'onBehalfOfContentOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ),
         )
+      )
     );
   }
 }
@@ -3801,9 +3801,9 @@ class Google_Service_YouTube_Search_Resource extends Google_Service_Resource
    * @opt_param string type The type parameter restricts a search query to only
    * retrieve a particular type of resource. The value is a comma-separated list
    * of resource types.
-   * @opt_param string topicId The topicId parameter indicates that the API
-   * response should only contain resources associated with the specified topic.
-   * The value identifies a Freebase topic ID.
+   * @opt_param string submissionId The submissionId parameter indicates that the API
+   * response should only contain resources associated with the specified submission.
+   * The value identifies a Freebase submission ID.
    * @opt_param string publishedBefore The publishedBefore parameter indicates
    * that the API response should only contain resources created before the
    * specified time. The value is an RFC 3339 formatted date-time value
@@ -4477,8 +4477,7 @@ class Google_Service_YouTube_Watermarks_Resource extends Google_Service_Resource
 class Google_Service_YouTube_AccessPolicy extends Google_Collection
 {
   protected $collection_key = 'exception';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $allowed;
   public $exception;
 
@@ -4503,8 +4502,7 @@ class Google_Service_YouTube_AccessPolicy extends Google_Collection
 
 class Google_Service_YouTube_Activity extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $contentDetailsType = 'Google_Service_YouTube_ActivityContentDetails';
   protected $contentDetailsDataType = '';
   public $etag;
@@ -4558,8 +4556,7 @@ class Google_Service_YouTube_Activity extends Google_Model
 
 class Google_Service_YouTube_ActivityContentDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $bulletinType = 'Google_Service_YouTube_ActivityContentDetailsBulletin';
   protected $bulletinDataType = '';
   protected $channelItemType = 'Google_Service_YouTube_ActivityContentDetailsChannelItem';
@@ -4676,8 +4673,7 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
 
 class Google_Service_YouTube_ActivityContentDetailsBulletin extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
 
@@ -4694,8 +4690,7 @@ class Google_Service_YouTube_ActivityContentDetailsBulletin extends Google_Model
 
 class Google_Service_YouTube_ActivityContentDetailsChannelItem extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
 
@@ -4712,8 +4707,7 @@ class Google_Service_YouTube_ActivityContentDetailsChannelItem extends Google_Mo
 
 class Google_Service_YouTube_ActivityContentDetailsComment extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
 
@@ -4730,8 +4724,7 @@ class Google_Service_YouTube_ActivityContentDetailsComment extends Google_Model
 
 class Google_Service_YouTube_ActivityContentDetailsFavorite extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
 
@@ -4748,8 +4741,7 @@ class Google_Service_YouTube_ActivityContentDetailsFavorite extends Google_Model
 
 class Google_Service_YouTube_ActivityContentDetailsLike extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
 
@@ -4766,8 +4758,7 @@ class Google_Service_YouTube_ActivityContentDetailsLike extends Google_Model
 
 class Google_Service_YouTube_ActivityContentDetailsPlaylistItem extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $playlistId;
   public $playlistItemId;
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
@@ -4803,8 +4794,7 @@ class Google_Service_YouTube_ActivityContentDetailsPlaylistItem extends Google_M
 class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_Collection
 {
   protected $collection_key = 'impressionUrl';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $adTag;
   public $clickTrackingUrl;
   public $creativeViewUrl;
@@ -4901,8 +4891,7 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
 
 class Google_Service_YouTube_ActivityContentDetailsRecommendation extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $reason;
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
@@ -4938,8 +4927,7 @@ class Google_Service_YouTube_ActivityContentDetailsRecommendation extends Google
 
 class Google_Service_YouTube_ActivityContentDetailsSocial extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $author;
   public $imageUrl;
   public $referenceUrl;
@@ -4992,8 +4980,7 @@ class Google_Service_YouTube_ActivityContentDetailsSocial extends Google_Model
 
 class Google_Service_YouTube_ActivityContentDetailsSubscription extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
 
@@ -5010,8 +4997,7 @@ class Google_Service_YouTube_ActivityContentDetailsSubscription extends Google_M
 
 class Google_Service_YouTube_ActivityContentDetailsUpload extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $videoId;
 
 
@@ -5028,8 +5014,7 @@ class Google_Service_YouTube_ActivityContentDetailsUpload extends Google_Model
 class Google_Service_YouTube_ActivityListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_Activity';
@@ -5120,8 +5105,7 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
 
 class Google_Service_YouTube_ActivitySnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $channelId;
   public $channelTitle;
   public $description;
@@ -5201,8 +5185,7 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
 
 class Google_Service_YouTube_Caption extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $id;
   public $kind;
@@ -5247,8 +5230,7 @@ class Google_Service_YouTube_Caption extends Google_Model
 class Google_Service_YouTube_CaptionListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_Caption';
@@ -5301,8 +5283,7 @@ class Google_Service_YouTube_CaptionListResponse extends Google_Collection
 
 class Google_Service_YouTube_CaptionSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $audioTrackType;
   public $failureReason;
   public $isAutoSynced;
@@ -5426,8 +5407,7 @@ class Google_Service_YouTube_CaptionSnippet extends Google_Model
 
 class Google_Service_YouTube_CdnSettings extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $format;
   protected $ingestionInfoType = 'Google_Service_YouTube_IngestionInfo';
   protected $ingestionInfoDataType = '';
@@ -5462,8 +5442,7 @@ class Google_Service_YouTube_CdnSettings extends Google_Model
 
 class Google_Service_YouTube_Channel extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $auditDetailsType = 'Google_Service_YouTube_ChannelAuditDetails';
   protected $auditDetailsDataType = '';
   protected $brandingSettingsType = 'Google_Service_YouTube_ChannelBrandingSettings';
@@ -5487,8 +5466,8 @@ class Google_Service_YouTube_Channel extends Google_Model
   protected $statisticsDataType = '';
   protected $statusType = 'Google_Service_YouTube_ChannelStatus';
   protected $statusDataType = '';
-  protected $topicDetailsType = 'Google_Service_YouTube_ChannelTopicDetails';
-  protected $topicDetailsDataType = '';
+  protected $submissionDetailsType = 'Google_Service_YouTube_ChannelSubmissionDetails';
+  protected $submissionDetailsDataType = '';
 
 
   public function setAuditDetails(Google_Service_YouTube_ChannelAuditDetails $auditDetails)
@@ -5595,20 +5574,19 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     return $this->status;
   }
-  public function setTopicDetails(Google_Service_YouTube_ChannelTopicDetails $topicDetails)
+  public function setSubmissionDetails(Google_Service_YouTube_ChannelSubmissionDetails $submissionDetails)
   {
-    $this->topicDetails = $topicDetails;
+    $this->submissionDetails = $submissionDetails;
   }
-  public function getTopicDetails()
+  public function getSubmissionDetails()
   {
-    return $this->topicDetails;
+    return $this->submissionDetails;
   }
 }
 
 class Google_Service_YouTube_ChannelAuditDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $communityGuidelinesGoodStanding;
   public $contentIdClaimsGoodStanding;
   public $copyrightStrikesGoodStanding;
@@ -5651,8 +5629,7 @@ class Google_Service_YouTube_ChannelAuditDetails extends Google_Model
 
 class Google_Service_YouTube_ChannelBannerResource extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $kind;
   public $url;
@@ -5687,8 +5664,7 @@ class Google_Service_YouTube_ChannelBannerResource extends Google_Model
 class Google_Service_YouTube_ChannelBrandingSettings extends Google_Collection
 {
   protected $collection_key = 'hints';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $channelType = 'Google_Service_YouTube_ChannelSettings';
   protected $channelDataType = '';
   protected $hintsType = 'Google_Service_YouTube_PropertyValue';
@@ -5735,8 +5711,7 @@ class Google_Service_YouTube_ChannelBrandingSettings extends Google_Collection
 
 class Google_Service_YouTube_ChannelContentDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $googlePlusUserId;
   protected $relatedPlaylistsType = 'Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists';
   protected $relatedPlaylistsDataType = '';
@@ -5762,8 +5737,7 @@ class Google_Service_YouTube_ChannelContentDetails extends Google_Model
 
 class Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $favorites;
   public $likes;
   public $uploads;
@@ -5815,8 +5789,7 @@ class Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists extends Googl
 
 class Google_Service_YouTube_ChannelContentOwnerDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $contentOwner;
   public $timeLinked;
 
@@ -5841,8 +5814,7 @@ class Google_Service_YouTube_ChannelContentOwnerDetails extends Google_Model
 
 class Google_Service_YouTube_ChannelConversionPing extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $context;
   public $conversionUrl;
 
@@ -5868,8 +5840,7 @@ class Google_Service_YouTube_ChannelConversionPing extends Google_Model
 class Google_Service_YouTube_ChannelConversionPings extends Google_Collection
 {
   protected $collection_key = 'pings';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $pingsType = 'Google_Service_YouTube_ChannelConversionPing';
   protected $pingsDataType = 'array';
 
@@ -5886,8 +5857,7 @@ class Google_Service_YouTube_ChannelConversionPings extends Google_Collection
 
 class Google_Service_YouTube_ChannelId extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $value;
 
 
@@ -5904,8 +5874,7 @@ class Google_Service_YouTube_ChannelId extends Google_Model
 class Google_Service_YouTube_ChannelListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_Channel';
@@ -5996,8 +5965,7 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
 
 class Google_Service_YouTube_ChannelLocalization extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $description;
   public $title;
 
@@ -6026,8 +5994,7 @@ class Google_Service_YouTube_ChannelLocalizations extends Google_Model
 
 class Google_Service_YouTube_ChannelSection extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $contentDetailsType = 'Google_Service_YouTube_ChannelSectionContentDetails';
   protected $contentDetailsDataType = '';
   public $etag;
@@ -6102,8 +6069,7 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
 class Google_Service_YouTube_ChannelSectionContentDetails extends Google_Collection
 {
   protected $collection_key = 'playlists';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $channels;
   public $playlists;
 
@@ -6129,8 +6095,7 @@ class Google_Service_YouTube_ChannelSectionContentDetails extends Google_Collect
 class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_ChannelSection';
@@ -6183,8 +6148,7 @@ class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collectio
 
 class Google_Service_YouTube_ChannelSectionLocalization extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $title;
 
 
@@ -6204,8 +6168,7 @@ class Google_Service_YouTube_ChannelSectionLocalizations extends Google_Model
 
 class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $channelId;
   public $defaultLanguage;
   protected $localizedType = 'Google_Service_YouTube_ChannelSectionLocalization';
@@ -6277,8 +6240,7 @@ class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
 class Google_Service_YouTube_ChannelSectionTargeting extends Google_Collection
 {
   protected $collection_key = 'regions';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $countries;
   public $languages;
   public $regions;
@@ -6313,8 +6275,7 @@ class Google_Service_YouTube_ChannelSectionTargeting extends Google_Collection
 class Google_Service_YouTube_ChannelSettings extends Google_Collection
 {
   protected $collection_key = 'featuredChannelsUrls';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $country;
   public $defaultLanguage;
   public $defaultTab;
@@ -6447,8 +6408,7 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
 
 class Google_Service_YouTube_ChannelSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $country;
   public $defaultLanguage;
   public $description;
@@ -6520,8 +6480,7 @@ class Google_Service_YouTube_ChannelSnippet extends Google_Model
 
 class Google_Service_YouTube_ChannelStatistics extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $commentCount;
   public $hiddenSubscriberCount;
   public $subscriberCount;
@@ -6573,8 +6532,7 @@ class Google_Service_YouTube_ChannelStatistics extends Google_Model
 
 class Google_Service_YouTube_ChannelStatus extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $isLinked;
   public $longUploadsStatus;
   public $privacyStatus;
@@ -6606,28 +6564,26 @@ class Google_Service_YouTube_ChannelStatus extends Google_Model
   }
 }
 
-class Google_Service_YouTube_ChannelTopicDetails extends Google_Collection
+class Google_Service_YouTube_ChannelSubmissionDetails extends Google_Collection
 {
-  protected $collection_key = 'topicIds';
-  protected $internal_gapi_mappings = array(
-  );
-  public $topicIds;
+  protected $collection_key = 'submissionIds';
+  protected $internal_gapi_mappings = array();
+  public $submissionIds;
 
 
-  public function setTopicIds($topicIds)
+  public function setSubmissionIds($submissionIds)
   {
-    $this->topicIds = $topicIds;
+    $this->submissionIds = $submissionIds;
   }
-  public function getTopicIds()
+  public function getSubmissionIds()
   {
-    return $this->topicIds;
+    return $this->submissionIds;
   }
 }
 
 class Google_Service_YouTube_Comment extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $id;
   public $kind;
@@ -6672,8 +6628,7 @@ class Google_Service_YouTube_Comment extends Google_Model
 class Google_Service_YouTube_CommentListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_Comment';
@@ -6755,8 +6710,7 @@ class Google_Service_YouTube_CommentListResponse extends Google_Collection
 
 class Google_Service_YouTube_CommentSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $authorChannelIdType = 'Google_Service_YouTube_ChannelId';
   protected $authorChannelIdDataType = '';
   public $authorChannelUrl;
@@ -6908,8 +6862,7 @@ class Google_Service_YouTube_CommentSnippet extends Google_Model
 
 class Google_Service_YouTube_CommentThread extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $id;
   public $kind;
@@ -6964,8 +6917,7 @@ class Google_Service_YouTube_CommentThread extends Google_Model
 class Google_Service_YouTube_CommentThreadListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_CommentThread';
@@ -7048,8 +7000,7 @@ class Google_Service_YouTube_CommentThreadListResponse extends Google_Collection
 class Google_Service_YouTube_CommentThreadReplies extends Google_Collection
 {
   protected $collection_key = 'comments';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $commentsType = 'Google_Service_YouTube_Comment';
   protected $commentsDataType = 'array';
 
@@ -7066,8 +7017,7 @@ class Google_Service_YouTube_CommentThreadReplies extends Google_Collection
 
 class Google_Service_YouTube_CommentThreadSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $canReply;
   public $channelId;
   public $isPublic;
@@ -7130,8 +7080,7 @@ class Google_Service_YouTube_CommentThreadSnippet extends Google_Model
 class Google_Service_YouTube_ContentRating extends Google_Collection
 {
   protected $collection_key = 'djctqRatingReasons';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $acbRating;
   public $agcomRating;
   public $anatelRating;
@@ -7714,8 +7663,7 @@ class Google_Service_YouTube_ContentRating extends Google_Collection
 
 class Google_Service_YouTube_GeoPoint extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $altitude;
   public $latitude;
   public $longitude;
@@ -7749,8 +7697,7 @@ class Google_Service_YouTube_GeoPoint extends Google_Model
 
 class Google_Service_YouTube_GuideCategory extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $id;
   public $kind;
@@ -7795,8 +7742,7 @@ class Google_Service_YouTube_GuideCategory extends Google_Model
 class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_GuideCategory';
@@ -7887,8 +7833,7 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
 
 class Google_Service_YouTube_GuideCategorySnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $channelId;
   public $title;
 
@@ -7913,8 +7858,7 @@ class Google_Service_YouTube_GuideCategorySnippet extends Google_Model
 
 class Google_Service_YouTube_I18nLanguage extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $id;
   public $kind;
@@ -7959,8 +7903,7 @@ class Google_Service_YouTube_I18nLanguage extends Google_Model
 class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_I18nLanguage';
@@ -8013,8 +7956,7 @@ class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
 
 class Google_Service_YouTube_I18nLanguageSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $hl;
   public $name;
 
@@ -8039,8 +7981,7 @@ class Google_Service_YouTube_I18nLanguageSnippet extends Google_Model
 
 class Google_Service_YouTube_I18nRegion extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $id;
   public $kind;
@@ -8085,8 +8026,7 @@ class Google_Service_YouTube_I18nRegion extends Google_Model
 class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_I18nRegion';
@@ -8139,8 +8079,7 @@ class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
 
 class Google_Service_YouTube_I18nRegionSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $gl;
   public $name;
 
@@ -8165,8 +8104,7 @@ class Google_Service_YouTube_I18nRegionSnippet extends Google_Model
 
 class Google_Service_YouTube_ImageSettings extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $backgroundImageUrlType = 'Google_Service_YouTube_LocalizedProperty';
   protected $backgroundImageUrlDataType = '';
   public $bannerExternalUrl;
@@ -8376,8 +8314,7 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
 
 class Google_Service_YouTube_IngestionInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $backupIngestionAddress;
   public $ingestionAddress;
   public $streamName;
@@ -8411,8 +8348,7 @@ class Google_Service_YouTube_IngestionInfo extends Google_Model
 
 class Google_Service_YouTube_InvideoBranding extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $imageBytes;
   public $imageUrl;
   protected $positionType = 'Google_Service_YouTube_InvideoPosition';
@@ -8466,8 +8402,7 @@ class Google_Service_YouTube_InvideoBranding extends Google_Model
 
 class Google_Service_YouTube_InvideoPosition extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $cornerPosition;
   public $type;
 
@@ -8493,8 +8428,7 @@ class Google_Service_YouTube_InvideoPosition extends Google_Model
 class Google_Service_YouTube_InvideoPromotion extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $defaultTimingType = 'Google_Service_YouTube_InvideoTiming';
   protected $defaultTimingDataType = '';
   protected $itemsType = 'Google_Service_YouTube_PromotedItem';
@@ -8540,8 +8474,7 @@ class Google_Service_YouTube_InvideoPromotion extends Google_Collection
 
 class Google_Service_YouTube_InvideoTiming extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $durationMs;
   public $offsetMs;
   public $type;
@@ -8575,8 +8508,7 @@ class Google_Service_YouTube_InvideoTiming extends Google_Model
 
 class Google_Service_YouTube_LanguageTag extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $value;
 
 
@@ -8592,8 +8524,7 @@ class Google_Service_YouTube_LanguageTag extends Google_Model
 
 class Google_Service_YouTube_LiveBroadcast extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $contentDetailsType = 'Google_Service_YouTube_LiveBroadcastContentDetails';
   protected $contentDetailsDataType = '';
   public $etag;
@@ -8605,8 +8536,8 @@ class Google_Service_YouTube_LiveBroadcast extends Google_Model
   protected $statisticsDataType = '';
   protected $statusType = 'Google_Service_YouTube_LiveBroadcastStatus';
   protected $statusDataType = '';
-  protected $topicDetailsType = 'Google_Service_YouTube_LiveBroadcastTopicDetails';
-  protected $topicDetailsDataType = '';
+  protected $submissionDetailsType = 'Google_Service_YouTube_LiveBroadcastSubmissionDetails';
+  protected $submissionDetailsDataType = '';
 
 
   public function setContentDetails(Google_Service_YouTube_LiveBroadcastContentDetails $contentDetails)
@@ -8665,20 +8596,19 @@ class Google_Service_YouTube_LiveBroadcast extends Google_Model
   {
     return $this->status;
   }
-  public function setTopicDetails(Google_Service_YouTube_LiveBroadcastTopicDetails $topicDetails)
+  public function setSubmissionDetails(Google_Service_YouTube_LiveBroadcastSubmissionDetails $submissionDetails)
   {
-    $this->topicDetails = $topicDetails;
+    $this->submissionDetails = $submissionDetails;
   }
-  public function getTopicDetails()
+  public function getSubmissionDetails()
   {
-    return $this->topicDetails;
+    return $this->submissionDetails;
   }
 }
 
 class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $boundStreamId;
   public $enableClosedCaptions;
   public $enableContentEncryption;
@@ -8768,8 +8698,7 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
 class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_LiveBroadcast';
@@ -8860,8 +8789,7 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
 
 class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $actualEndTime;
   public $actualStartTime;
   public $channelId;
@@ -8959,8 +8887,7 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
 
 class Google_Service_YouTube_LiveBroadcastStatistics extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $concurrentViewers;
   public $totalChatCount;
 
@@ -8985,8 +8912,7 @@ class Google_Service_YouTube_LiveBroadcastStatistics extends Google_Model
 
 class Google_Service_YouTube_LiveBroadcastStatus extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $lifeCycleStatus;
   public $liveBroadcastPriority;
   public $privacyStatus;
@@ -9027,17 +8953,16 @@ class Google_Service_YouTube_LiveBroadcastStatus extends Google_Model
   }
 }
 
-class Google_Service_YouTube_LiveBroadcastTopic extends Google_Model
+class Google_Service_YouTube_LiveBroadcastSubmission extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $snippetType = 'Google_Service_YouTube_LiveBroadcastTopicSnippet';
+  protected $internal_gapi_mappings = array();
+  protected $snippetType = 'Google_Service_YouTube_LiveBroadcastSubmissionSnippet';
   protected $snippetDataType = '';
   public $type;
   public $unmatched;
 
 
-  public function setSnippet(Google_Service_YouTube_LiveBroadcastTopicSnippet $snippet)
+  public function setSnippet(Google_Service_YouTube_LiveBroadcastSubmissionSnippet $snippet)
   {
     $this->snippet = $snippet;
   }
@@ -9063,29 +8988,27 @@ class Google_Service_YouTube_LiveBroadcastTopic extends Google_Model
   }
 }
 
-class Google_Service_YouTube_LiveBroadcastTopicDetails extends Google_Collection
+class Google_Service_YouTube_LiveBroadcastSubmissionDetails extends Google_Collection
 {
-  protected $collection_key = 'topics';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $topicsType = 'Google_Service_YouTube_LiveBroadcastTopic';
-  protected $topicsDataType = 'array';
+  protected $collection_key = 'submissions';
+  protected $internal_gapi_mappings = array();
+  protected $submissionsType = 'Google_Service_YouTube_LiveBroadcastSubmission';
+  protected $submissionsDataType = 'array';
 
 
-  public function setTopics($topics)
+  public function setSubmissions($submissions)
   {
-    $this->topics = $topics;
+    $this->submissions = $submissions;
   }
-  public function getTopics()
+  public function getSubmissions()
   {
-    return $this->topics;
+    return $this->submissions;
   }
 }
 
-class Google_Service_YouTube_LiveBroadcastTopicSnippet extends Google_Model
+class Google_Service_YouTube_LiveBroadcastSubmissionSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $name;
   public $releaseDate;
 
@@ -9110,8 +9033,7 @@ class Google_Service_YouTube_LiveBroadcastTopicSnippet extends Google_Model
 
 class Google_Service_YouTube_LiveStream extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $cdnType = 'Google_Service_YouTube_CdnSettings';
   protected $cdnDataType = '';
   protected $contentDetailsType = 'Google_Service_YouTube_LiveStreamContentDetails';
@@ -9185,8 +9107,7 @@ class Google_Service_YouTube_LiveStream extends Google_Model
 
 class Google_Service_YouTube_LiveStreamConfigurationIssue extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $description;
   public $reason;
   public $severity;
@@ -9229,8 +9150,7 @@ class Google_Service_YouTube_LiveStreamConfigurationIssue extends Google_Model
 
 class Google_Service_YouTube_LiveStreamContentDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $closedCaptionsIngestionUrl;
   public $isReusable;
 
@@ -9256,8 +9176,7 @@ class Google_Service_YouTube_LiveStreamContentDetails extends Google_Model
 class Google_Service_YouTube_LiveStreamHealthStatus extends Google_Collection
 {
   protected $collection_key = 'configurationIssues';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $configurationIssuesType = 'Google_Service_YouTube_LiveStreamConfigurationIssue';
   protected $configurationIssuesDataType = 'array';
   public $lastUpdateTimeS;
@@ -9293,8 +9212,7 @@ class Google_Service_YouTube_LiveStreamHealthStatus extends Google_Collection
 class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_LiveStream';
@@ -9385,8 +9303,7 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
 
 class Google_Service_YouTube_LiveStreamSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $channelId;
   public $description;
   public $isDefaultStream;
@@ -9438,8 +9355,7 @@ class Google_Service_YouTube_LiveStreamSnippet extends Google_Model
 
 class Google_Service_YouTube_LiveStreamStatus extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $healthStatusType = 'Google_Service_YouTube_LiveStreamHealthStatus';
   protected $healthStatusDataType = '';
   public $streamStatus;
@@ -9466,8 +9382,7 @@ class Google_Service_YouTube_LiveStreamStatus extends Google_Model
 class Google_Service_YouTube_LocalizedProperty extends Google_Collection
 {
   protected $collection_key = 'localized';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $default;
   protected $defaultLanguageType = 'Google_Service_YouTube_LanguageTag';
   protected $defaultLanguageDataType = '';
@@ -9503,8 +9418,7 @@ class Google_Service_YouTube_LocalizedProperty extends Google_Collection
 
 class Google_Service_YouTube_LocalizedString extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $language;
   public $value;
 
@@ -9529,8 +9443,7 @@ class Google_Service_YouTube_LocalizedString extends Google_Model
 
 class Google_Service_YouTube_MonitorStreamInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $broadcastStreamDelayMs;
   public $embedHtml;
   public $enableMonitorStream;
@@ -9564,8 +9477,7 @@ class Google_Service_YouTube_MonitorStreamInfo extends Google_Model
 
 class Google_Service_YouTube_PageInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $resultsPerPage;
   public $totalResults;
 
@@ -9590,8 +9502,7 @@ class Google_Service_YouTube_PageInfo extends Google_Model
 
 class Google_Service_YouTube_Playlist extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $contentDetailsType = 'Google_Service_YouTube_PlaylistContentDetails';
   protected $contentDetailsDataType = '';
   public $etag;
@@ -9675,8 +9586,7 @@ class Google_Service_YouTube_Playlist extends Google_Model
 
 class Google_Service_YouTube_PlaylistContentDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $itemCount;
 
 
@@ -9692,8 +9602,7 @@ class Google_Service_YouTube_PlaylistContentDetails extends Google_Model
 
 class Google_Service_YouTube_PlaylistItem extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $contentDetailsType = 'Google_Service_YouTube_PlaylistItemContentDetails';
   protected $contentDetailsDataType = '';
   public $etag;
@@ -9757,8 +9666,7 @@ class Google_Service_YouTube_PlaylistItem extends Google_Model
 
 class Google_Service_YouTube_PlaylistItemContentDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $endAt;
   public $note;
   public $startAt;
@@ -9802,8 +9710,7 @@ class Google_Service_YouTube_PlaylistItemContentDetails extends Google_Model
 class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_PlaylistItem';
@@ -9894,8 +9801,7 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
 
 class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $channelId;
   public $channelTitle;
   public $description;
@@ -9985,8 +9891,7 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
 
 class Google_Service_YouTube_PlaylistItemStatus extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $privacyStatus;
 
 
@@ -10003,8 +9908,7 @@ class Google_Service_YouTube_PlaylistItemStatus extends Google_Model
 class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_Playlist';
@@ -10095,8 +9999,7 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
 
 class Google_Service_YouTube_PlaylistLocalization extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $description;
   public $title;
 
@@ -10125,8 +10028,7 @@ class Google_Service_YouTube_PlaylistLocalizations extends Google_Model
 
 class Google_Service_YouTube_PlaylistPlayer extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $embedHtml;
 
 
@@ -10143,8 +10045,7 @@ class Google_Service_YouTube_PlaylistPlayer extends Google_Model
 class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
 {
   protected $collection_key = 'tags';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $channelId;
   public $channelTitle;
   public $defaultLanguage;
@@ -10234,8 +10135,7 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
 
 class Google_Service_YouTube_PlaylistStatus extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $privacyStatus;
 
 
@@ -10251,8 +10151,7 @@ class Google_Service_YouTube_PlaylistStatus extends Google_Model
 
 class Google_Service_YouTube_PromotedItem extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $customMessage;
   protected $idType = 'Google_Service_YouTube_PromotedItemId';
   protected $idDataType = '';
@@ -10297,8 +10196,7 @@ class Google_Service_YouTube_PromotedItem extends Google_Model
 
 class Google_Service_YouTube_PromotedItemId extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $recentlyUploadedBy;
   public $type;
   public $videoId;
@@ -10341,8 +10239,7 @@ class Google_Service_YouTube_PromotedItemId extends Google_Model
 
 class Google_Service_YouTube_PropertyValue extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $property;
   public $value;
 
@@ -10367,8 +10264,7 @@ class Google_Service_YouTube_PropertyValue extends Google_Model
 
 class Google_Service_YouTube_ResourceId extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $channelId;
   public $kind;
   public $playlistId;
@@ -10412,8 +10308,7 @@ class Google_Service_YouTube_ResourceId extends Google_Model
 class Google_Service_YouTube_SearchListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_SearchResult';
@@ -10504,8 +10399,7 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
 
 class Google_Service_YouTube_SearchResult extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   protected $idType = 'Google_Service_YouTube_ResourceId';
   protected $idDataType = '';
@@ -10550,8 +10444,7 @@ class Google_Service_YouTube_SearchResult extends Google_Model
 
 class Google_Service_YouTube_SearchResultSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $channelId;
   public $channelTitle;
   public $description;
@@ -10622,8 +10515,7 @@ class Google_Service_YouTube_SearchResultSnippet extends Google_Model
 
 class Google_Service_YouTube_Subscription extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $contentDetailsType = 'Google_Service_YouTube_SubscriptionContentDetails';
   protected $contentDetailsDataType = '';
   public $etag;
@@ -10687,8 +10579,7 @@ class Google_Service_YouTube_Subscription extends Google_Model
 
 class Google_Service_YouTube_SubscriptionContentDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $activityType;
   public $newItemCount;
   public $totalItemCount;
@@ -10723,8 +10614,7 @@ class Google_Service_YouTube_SubscriptionContentDetails extends Google_Model
 class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_Subscription';
@@ -10815,8 +10705,7 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
 
 class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $channelId;
   public $channelTitle;
   public $description;
@@ -10888,8 +10777,7 @@ class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
 
 class Google_Service_YouTube_SubscriptionSubscriberSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $channelId;
   public $description;
   protected $thumbnailsType = 'Google_Service_YouTube_ThumbnailDetails';
@@ -10933,8 +10821,7 @@ class Google_Service_YouTube_SubscriptionSubscriberSnippet extends Google_Model
 
 class Google_Service_YouTube_Thumbnail extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $height;
   public $url;
   public $width;
@@ -10968,8 +10855,7 @@ class Google_Service_YouTube_Thumbnail extends Google_Model
 
 class Google_Service_YouTube_ThumbnailDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $defaultType = 'Google_Service_YouTube_Thumbnail';
   protected $defaultDataType = '';
   protected $highType = 'Google_Service_YouTube_Thumbnail';
@@ -11027,8 +10913,7 @@ class Google_Service_YouTube_ThumbnailDetails extends Google_Model
 class Google_Service_YouTube_ThumbnailSetResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_ThumbnailDetails';
@@ -11085,8 +10970,7 @@ class Google_Service_YouTube_TokenPagination extends Google_Model
 
 class Google_Service_YouTube_Video extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $ageGatingType = 'Google_Service_YouTube_VideoAgeGating';
   protected $ageGatingDataType = '';
   protected $contentDetailsType = 'Google_Service_YouTube_VideoContentDetails';
@@ -11120,8 +11004,8 @@ class Google_Service_YouTube_Video extends Google_Model
   protected $statusDataType = '';
   protected $suggestionsType = 'Google_Service_YouTube_VideoSuggestions';
   protected $suggestionsDataType = '';
-  protected $topicDetailsType = 'Google_Service_YouTube_VideoTopicDetails';
-  protected $topicDetailsDataType = '';
+  protected $submissionDetailsType = 'Google_Service_YouTube_VideoSubmissionDetails';
+  protected $submissionDetailsDataType = '';
 
 
   public function setAgeGating(Google_Service_YouTube_VideoAgeGating $ageGating)
@@ -11268,20 +11152,19 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->suggestions;
   }
-  public function setTopicDetails(Google_Service_YouTube_VideoTopicDetails $topicDetails)
+  public function setSubmissionDetails(Google_Service_YouTube_VideoSubmissionDetails $submissionDetails)
   {
-    $this->topicDetails = $topicDetails;
+    $this->submissionDetails = $submissionDetails;
   }
-  public function getTopicDetails()
+  public function getSubmissionDetails()
   {
-    return $this->topicDetails;
+    return $this->submissionDetails;
   }
 }
 
 class Google_Service_YouTube_VideoAbuseReport extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $comments;
   public $language;
   public $reasonId;
@@ -11333,8 +11216,7 @@ class Google_Service_YouTube_VideoAbuseReport extends Google_Model
 
 class Google_Service_YouTube_VideoAbuseReportReason extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $id;
   public $kind;
@@ -11379,8 +11261,7 @@ class Google_Service_YouTube_VideoAbuseReportReason extends Google_Model
 class Google_Service_YouTube_VideoAbuseReportReasonListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_VideoAbuseReportReason';
@@ -11434,8 +11315,7 @@ class Google_Service_YouTube_VideoAbuseReportReasonListResponse extends Google_C
 class Google_Service_YouTube_VideoAbuseReportReasonSnippet extends Google_Collection
 {
   protected $collection_key = 'secondaryReasons';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $label;
   protected $secondaryReasonsType = 'Google_Service_YouTube_VideoAbuseReportSecondaryReason';
   protected $secondaryReasonsDataType = 'array';
@@ -11461,8 +11341,7 @@ class Google_Service_YouTube_VideoAbuseReportReasonSnippet extends Google_Collec
 
 class Google_Service_YouTube_VideoAbuseReportSecondaryReason extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $id;
   public $label;
 
@@ -11487,8 +11366,7 @@ class Google_Service_YouTube_VideoAbuseReportSecondaryReason extends Google_Mode
 
 class Google_Service_YouTube_VideoAgeGating extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $alcoholContent;
   public $restricted;
   public $videoGameRating;
@@ -11522,8 +11400,7 @@ class Google_Service_YouTube_VideoAgeGating extends Google_Model
 
 class Google_Service_YouTube_VideoCategory extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $id;
   public $kind;
@@ -11568,8 +11445,7 @@ class Google_Service_YouTube_VideoCategory extends Google_Model
 class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_VideoCategory';
@@ -11660,8 +11536,7 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
 
 class Google_Service_YouTube_VideoCategorySnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $assignable;
   public $channelId;
   public $title;
@@ -11695,8 +11570,7 @@ class Google_Service_YouTube_VideoCategorySnippet extends Google_Model
 
 class Google_Service_YouTube_VideoContentDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $caption;
   protected $contentRatingType = 'Google_Service_YouTube_ContentRating';
   protected $contentRatingDataType = '';
@@ -11779,8 +11653,7 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
 class Google_Service_YouTube_VideoContentDetailsRegionRestriction extends Google_Collection
 {
   protected $collection_key = 'blocked';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $allowed;
   public $blocked;
 
@@ -11805,8 +11678,7 @@ class Google_Service_YouTube_VideoContentDetailsRegionRestriction extends Google
 
 class Google_Service_YouTube_VideoConversionPing extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $context;
   public $conversionUrl;
 
@@ -11832,8 +11704,7 @@ class Google_Service_YouTube_VideoConversionPing extends Google_Model
 class Google_Service_YouTube_VideoConversionPings extends Google_Collection
 {
   protected $collection_key = 'pings';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $pingsType = 'Google_Service_YouTube_VideoConversionPing';
   protected $pingsDataType = 'array';
 
@@ -11851,8 +11722,7 @@ class Google_Service_YouTube_VideoConversionPings extends Google_Collection
 class Google_Service_YouTube_VideoFileDetails extends Google_Collection
 {
   protected $collection_key = 'videoStreams';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $audioStreamsType = 'Google_Service_YouTube_VideoFileDetailsAudioStream';
   protected $audioStreamsDataType = 'array';
   public $bitrateBps;
@@ -11952,8 +11822,7 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
 
 class Google_Service_YouTube_VideoFileDetailsAudioStream extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $bitrateBps;
   public $channelCount;
   public $codec;
@@ -11996,8 +11865,7 @@ class Google_Service_YouTube_VideoFileDetailsAudioStream extends Google_Model
 
 class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $aspectRatio;
   public $bitrateBps;
   public $codec;
@@ -12077,8 +11945,7 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
 class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_VideoRating';
@@ -12132,8 +11999,7 @@ class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
 class Google_Service_YouTube_VideoListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_Video';
@@ -12224,8 +12090,7 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
 
 class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $actualEndTime;
   public $actualStartTime;
   public $concurrentViewers;
@@ -12277,8 +12142,7 @@ class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
 
 class Google_Service_YouTube_VideoLocalization extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $description;
   public $title;
 
@@ -12307,8 +12171,7 @@ class Google_Service_YouTube_VideoLocalizations extends Google_Model
 
 class Google_Service_YouTube_VideoMonetizationDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $accessType = 'Google_Service_YouTube_AccessPolicy';
   protected $accessDataType = '';
 
@@ -12325,8 +12188,7 @@ class Google_Service_YouTube_VideoMonetizationDetails extends Google_Model
 
 class Google_Service_YouTube_VideoPlayer extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $embedHtml;
 
 
@@ -12342,8 +12204,7 @@ class Google_Service_YouTube_VideoPlayer extends Google_Model
 
 class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $editorSuggestionsAvailability;
   public $fileDetailsAvailability;
   public $processingFailureReason;
@@ -12423,8 +12284,7 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
 
 class Google_Service_YouTube_VideoProcessingDetailsProcessingProgress extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $partsProcessed;
   public $partsTotal;
   public $timeLeftMs;
@@ -12459,8 +12319,7 @@ class Google_Service_YouTube_VideoProcessingDetailsProcessingProgress extends Go
 class Google_Service_YouTube_VideoProjectDetails extends Google_Collection
 {
   protected $collection_key = 'tags';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $tags;
 
 
@@ -12476,8 +12335,7 @@ class Google_Service_YouTube_VideoProjectDetails extends Google_Collection
 
 class Google_Service_YouTube_VideoRating extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $rating;
   public $videoId;
 
@@ -12502,8 +12360,7 @@ class Google_Service_YouTube_VideoRating extends Google_Model
 
 class Google_Service_YouTube_VideoRecordingDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $locationType = 'Google_Service_YouTube_GeoPoint';
   protected $locationDataType = '';
   public $locationDescription;
@@ -12539,8 +12396,7 @@ class Google_Service_YouTube_VideoRecordingDetails extends Google_Model
 class Google_Service_YouTube_VideoSnippet extends Google_Collection
 {
   protected $collection_key = 'tags';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $categoryId;
   public $channelId;
   public $channelTitle;
@@ -12657,8 +12513,7 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
 
 class Google_Service_YouTube_VideoStatistics extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $commentCount;
   public $dislikeCount;
   public $favoriteCount;
@@ -12710,8 +12565,7 @@ class Google_Service_YouTube_VideoStatistics extends Google_Model
 
 class Google_Service_YouTube_VideoStatus extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $embeddable;
   public $failureReason;
   public $license;
@@ -12791,8 +12645,7 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
 class Google_Service_YouTube_VideoSuggestions extends Google_Collection
 {
   protected $collection_key = 'tagSuggestions';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $editorSuggestions;
   public $processingErrors;
   public $processingHints;
@@ -12846,8 +12699,7 @@ class Google_Service_YouTube_VideoSuggestions extends Google_Collection
 class Google_Service_YouTube_VideoSuggestionsTagSuggestion extends Google_Collection
 {
   protected $collection_key = 'categoryRestricts';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $categoryRestricts;
   public $tag;
 
@@ -12870,37 +12722,35 @@ class Google_Service_YouTube_VideoSuggestionsTagSuggestion extends Google_Collec
   }
 }
 
-class Google_Service_YouTube_VideoTopicDetails extends Google_Collection
+class Google_Service_YouTube_VideoSubmissionDetails extends Google_Collection
 {
-  protected $collection_key = 'topicIds';
-  protected $internal_gapi_mappings = array(
-  );
-  public $relevantTopicIds;
-  public $topicIds;
+  protected $collection_key = 'submissionIds';
+  protected $internal_gapi_mappings = array();
+  public $relevantSubmissionIds;
+  public $submissionIds;
 
 
-  public function setRelevantTopicIds($relevantTopicIds)
+  public function setRelevantSubmissionIds($relevantSubmissionIds)
   {
-    $this->relevantTopicIds = $relevantTopicIds;
+    $this->relevantSubmissionIds = $relevantSubmissionIds;
   }
-  public function getRelevantTopicIds()
+  public function getRelevantSubmissionIds()
   {
-    return $this->relevantTopicIds;
+    return $this->relevantSubmissionIds;
   }
-  public function setTopicIds($topicIds)
+  public function setSubmissionIds($submissionIds)
   {
-    $this->topicIds = $topicIds;
+    $this->submissionIds = $submissionIds;
   }
-  public function getTopicIds()
+  public function getSubmissionIds()
   {
-    return $this->topicIds;
+    return $this->submissionIds;
   }
 }
 
 class Google_Service_YouTube_WatchSettings extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $backgroundColor;
   public $featuredPlaylistId;
   public $textColor;

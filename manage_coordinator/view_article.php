@@ -7,16 +7,16 @@ $userFacultyId = $_SESSION["current_user"]["faculty_id"];
 $userId = $_SESSION["current_user"]["u_id"];
 
 
-// SELECT file_content.*, file_comment.*,file_submit_to_topic.* from `file_submit_to_topic`INNER JOIN file_content ON file_submit_to_topic.id = file_content.file_submit_id INNER JOIN file_comment ON file_comment.file_submited_id = file_submit_to_topic.id where `file_submit_Id` = '60'
-// $fileSubmission = $conn->query("SELECT topic.*, file_submit_to_topic.*, file_content.*, file_comment.* from `topic` INNER JOIN file_submit_to_topic ON file_submit_to_topic.file_topic_uploaded = topic.id INNER JOIN file_content ON file_content.file_submit_id = file_submit_to_topic.id INNER JOIN file_comment ON file_comment.file_submited_id = file_submit_to_topic.id where `file_submit_Id` = '$idFile'");
-// $topicContent = $conn->query("SELECT * from `topic` where `file_submit_Id` = '$idFile'");
+// SELECT file_content.*, file_comment.*,file_submit_to_submission.* from `file_submit_to_submission`INNER JOIN file_content ON file_submit_to_submission.id = file_content.file_submit_id INNER JOIN file_comment ON file_comment.file_submited_id = file_submit_to_submission.id where `file_submit_Id` = '60'
+// $fileSubmission = $conn->query("SELECT submission.*, file_submit_to_submission.*, file_content.*, file_comment.* from `submission` INNER JOIN file_submit_to_submission ON file_submit_to_submission.file_submission_uploaded = submission.id INNER JOIN file_content ON file_content.file_submit_id = file_submit_to_submission.id INNER JOIN file_comment ON file_comment.file_submited_id = file_submit_to_submission.id where `file_submit_Id` = '$idFile'");
+// $submissionContent = $conn->query("SELECT * from `submission` where `file_submit_Id` = '$idFile'");
 
 // $fileSubmission = $conn->query("SELECT file_content.*, file_comment.* from `file_content` INNER JOIN file_comment ON file_comment.file_submited_id = file_content.file_submit_id where file_content.file_submit_id = '60' AND file_comment.file_submited_id = '60'");
 // $fileSubmissionContent = array();
 // while ($view = mysqli_fetch_array($fileSubmission)) {
 //     $fileSubmissionContent[] = $view;
 // }
-// // $topicContent = mysqli_fetch_assoc($topic);
+// // $submissionContent = mysqli_fetch_assoc($submission);
 
 // // var_dump($fileSubmission);
 // foreach ($fileSubmissionContent as $rowSb) {
@@ -32,7 +32,7 @@ $userId = $_SESSION["current_user"]["u_id"];
 
 $fileContent = $conn->query("SELECT file_content.* from `file_content` where `file_submit_Id` = '$idFile'");
 $fileComment = $conn->query("SELECT file_comment.*,u.* from `file_comment` INNER JOIN user as u ON u.u_id = file_comment.file_comment_user where `file_submited_Id` = '$idFile'");
-$fileSubmission = $conn->query("SELECT file_submit_to_topic.*, user.*,faculty.* FROM file_submit_to_topic INNER JOIN user ON file_submit_to_topic.file_userId_uploaded = user.u_id INNER JOIN faculty ON faculty.f_id = user.faculty_id WHERE user.role = 'student' AND user.faculty_id = '$userFacultyId'  ORDER BY id DESC LIMIT 1");
+$fileSubmission = $conn->query("SELECT file_submit_to_submission.*, user.*,faculty.* FROM file_submit_to_submission INNER JOIN user ON file_submit_to_submission.file_userId_uploaded = user.u_id INNER JOIN faculty ON faculty.f_id = user.faculty_id WHERE user.role = 'student' AND user.faculty_id = '$userFacultyId'  ORDER BY id DESC LIMIT 1");
 
 
 
@@ -42,7 +42,7 @@ $fileSubmission = $conn->query("SELECT file_submit_to_topic.*, user.*,faculty.* 
 if (isset($_POST['uploadCommnet'])) {
 
     $uploadCmt = $conn->query("INSERT INTO `file_comment` (`file_comment_id`, `file_comment_content`, `file_comment_time`, `file_comment_user`, `file_submited_id`) VALUES (NULL, '$_POST[commentContent]', '" . time() . "', '$userId', '$idFile'); ");
-    $changeStatus = $conn->query("UPDATE `file_submit_to_topic` SET `file_status` = '$_POST[statusOfFile]' where `id` = '$idFile'");
+    $changeStatus = $conn->query("UPDATE `file_submit_to_submission` SET `file_status` = '$_POST[statusOfFile]' where `id` = '$idFile'");
     if ($uploadCmt == true) {
 ?>
         <script>

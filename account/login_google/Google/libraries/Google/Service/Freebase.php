@@ -49,150 +49,150 @@ class Google_Service_Freebase extends Google_Service
     $this->serviceName = 'freebase';
 
     $this->base_methods = new Google_Service_Resource(
-        $this,
-        $this->serviceName,
-        '',
-        array(
-          'methods' => array(
-            'reconcile' => array(
-              'path' => 'reconcile',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'lang' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'confidence' => array(
-                  'location' => 'query',
-                  'type' => 'number',
-                ),
-                'name' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'kind' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'prop' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'limit' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
+      $this,
+      $this->serviceName,
+      '',
+      array(
+        'methods' => array(
+          'reconcile' => array(
+            'path' => 'reconcile',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'lang' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'repeated' => true,
               ),
-            ),'search' => array(
-              'path' => 'search',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'domain' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'help' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'query' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'scoring' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'cursor' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'prefixed' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'exact' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'mid' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'encode' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'type' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'as_of_time' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'stemmed' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'format' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'spell' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'with' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'lang' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'indent' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'callback' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'without' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'limit' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'output' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'mql_output' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'confidence' => array(
+                'location' => 'query',
+                'type' => 'number',
+              ),
+              'name' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'kind' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'repeated' => true,
+              ),
+              'prop' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'repeated' => true,
+              ),
+              'limit' => array(
+                'location' => 'query',
+                'type' => 'integer',
               ),
             ),
-          )
+          ), 'search' => array(
+            'path' => 'search',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'domain' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'repeated' => true,
+              ),
+              'help' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'query' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'scoring' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'cursor' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'prefixed' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'exact' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'mid' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'repeated' => true,
+              ),
+              'encode' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'type' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'repeated' => true,
+              ),
+              'as_of_time' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'stemmed' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'format' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'spell' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'with' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'repeated' => true,
+              ),
+              'lang' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'repeated' => true,
+              ),
+              'indent' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'filter' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'repeated' => true,
+              ),
+              'callback' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'without' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'repeated' => true,
+              ),
+              'limit' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'output' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'mql_output' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ),
         )
+      )
     );
   }
   /**
@@ -221,7 +221,7 @@ class Google_Service_Freebase extends Google_Service
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string domain Restrict to topics with this Freebase domain id.
+   * @opt_param string domain Restrict to submissions with this Freebase domain id.
    * @opt_param string help The keyword to request help on.
    * @opt_param string query Query term to search for.
    * @opt_param string scoring Relevance scoring algorithm to use.
@@ -231,7 +231,7 @@ class Google_Service_Freebase extends Google_Service
    * @opt_param string mid A mid to use instead of a query.
    * @opt_param string encode The encoding of the response. You can use this
    * parameter to enable html encoding.
-   * @opt_param string type Restrict to topics with this Freebase type id.
+   * @opt_param string type Restrict to submissions with this Freebase type id.
    * @opt_param string as_of_time A mql as_of_time value to use with mql_output
    * queries.
    * @opt_param bool stemmed Query on stemmed names and aliases. May not be used
@@ -264,8 +264,7 @@ class Google_Service_Freebase extends Google_Service
 
 class Google_Service_Freebase_ReconcileCandidate extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $confidence;
   public $lang;
   public $mid;
@@ -318,8 +317,7 @@ class Google_Service_Freebase_ReconcileCandidate extends Google_Model
 
 class Google_Service_Freebase_ReconcileCandidateNotable extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $id;
   public $name;
 
@@ -345,8 +343,7 @@ class Google_Service_Freebase_ReconcileCandidateNotable extends Google_Model
 class Google_Service_Freebase_ReconcileGet extends Google_Collection
 {
   protected $collection_key = 'warning';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $candidateType = 'Google_Service_Freebase_ReconcileCandidate';
   protected $candidateDataType = 'array';
   protected $costsType = 'Google_Service_Freebase_ReconcileGetCosts';
@@ -393,8 +390,7 @@ class Google_Service_Freebase_ReconcileGet extends Google_Collection
 
 class Google_Service_Freebase_ReconcileGetCosts extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $hits;
   public $ms;
 
@@ -419,8 +415,7 @@ class Google_Service_Freebase_ReconcileGetCosts extends Google_Model
 
 class Google_Service_Freebase_ReconcileGetWarning extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $location;
   public $message;
   public $reason;

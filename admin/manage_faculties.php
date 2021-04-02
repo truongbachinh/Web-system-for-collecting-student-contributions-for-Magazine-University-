@@ -74,7 +74,7 @@ if (isset($_POST["submitFaculty"])) {
                                                 <th>Name Faculty</th>
                                                 <th>Description Faculty</th>
                                                 <th>Manager Facutly</th>
-                                                <!-- <th>Topics</th>
+                                                <!-- <th>Submissions</th>
                                         <th>Articles</th> -->
                                                 <th>Action</th>
                                             </tr>

@@ -6,8 +6,8 @@ include "../config.php";
 $isError = false;
 $msg = "";
 
-$topic = $conn->query("SELECT * from topic");
-$topicSubmit = mysqli_fetch_assoc($topic);
+$submission = $conn->query("SELECT * from submission");
+$submissionSubmit = mysqli_fetch_assoc($submission);
 
 
 
@@ -18,28 +18,28 @@ $topicSubmit = mysqli_fetch_assoc($topic);
 // }
 
 
-// $infor = $conn->query("SELECT faculty.*, topic.* FROM topic ");
+// $infor = $conn->query("SELECT faculty.*, submission.* FROM submission ");
 // if (!$infor) die($conn->error);
-// $topicInfor = array();
-// while ($topicF = mysqli_fetch_array($infor)) {
-//     $topicInfor[] = $topicF;
+// $submissionInfor = array();
+// while ($submissionF = mysqli_fetch_array($infor)) {
+//     $submissionInfor[] = $submissionF;
 // }
 
-if (isset($_POST["addTopic"])) {
+if (isset($_POST["addSubmission"])) {
 
 
     $count = 0;
-    $sql_user = "SELECT * from topic where topic_name ='$_POST[topicName]'";
+    $sql_user = "SELECT * from submission where submission_name ='$_POST[submissionName]'";
     $res = mysqli_query($conn, $sql_user) or die(mysqli_error($conn));
     $count = mysqli_num_rows($res);
 
     if ($count > 0) {
         $isError = true;
-        $msg = "Topic Id exits!";
+        $msg = "Submission Id exits!";
     } else {
-        $addFaculty = mysqli_query($conn, "INSERT INTO `topic` (`id`,  `topic_name`, `topic_description`, `topic_deadline`) VALUES (NULL,  '$_POST[topicName]', '$_POST[topicDescription]', '$_POST[startDeadLine]');");
+        $addFaculty = mysqli_query($conn, "INSERT INTO `submission` (`id`,  `submission_name`, `submission_description`, `submission_deadline`) VALUES (NULL,  '$_POST[submissionName]', '$_POST[submissionDescription]', '$_POST[startDeadLine]');");
         if ($addFaculty) {
-            $msg = "Successfully added faculty.";
+            $msg = "Successfully added Submission.";
         }
     }
 }
@@ -59,14 +59,14 @@ if (isset($_POST["addTopic"])) {
 
         <!-- PLACE CODE INSIDE THIS AREA -->
 
-        <section class="manage-topic">
+        <section class="manage-submission">
             <div class="container m-t-30">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
                                 <div class="card-title">
-                                    <h4> Manage Topic </h4>
+                                    <h4> Manage Submission </h4>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -78,7 +78,7 @@ if (isset($_POST["addTopic"])) {
                                         </div>
                                     </div>
                                     <div class="col-sm-6 ">
-                                        <a href="" class="btn btn-info float-right" role="button" data-toggle="modal" data-target="#addTopic"><i class="mdi mdi-clipboard-plus"></i> Add Topic
+                                        <a href="" class="btn btn-info float-right" role="button" data-toggle="modal" data-target="#addSubmission"><i class="mdi mdi-clipboard-plus"></i> Add Submission
                                         </a>
                                     </div>
                                 </div>
@@ -87,10 +87,10 @@ if (isset($_POST["addTopic"])) {
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Topic Name</th>
-                                                <th>Topic Description</th>
-                                                <th>Topic Start Deadline</th>
-                                                <th>Topic End Deadline</th>
+                                                <th>Submission Name</th>
+                                                <th>Submission Description</th>
+                                                <th>Submission Start Deadline</th>
+                                                <th>Submission End Deadline</th>
                                                 <!-- <th>Articles</th> -->
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -99,11 +99,11 @@ if (isset($_POST["addTopic"])) {
                                         <tbody>
                                             <?php
                                             $i = 1;
-                                            $res = mysqli_query($conn, "select * from topic");
+                                            $res = mysqli_query($conn, "SELECT * from submission");
                                             while ($row = mysqli_fetch_array($res)) {
-                                                if ($topicSubmit != NULL) {
-                                                    $topicSubmit = mysqli_fetch_assoc($topic);
-                                                    $selected_date = ($row["topic_deadline"]);
+                                                if ($submissionSubmit != NULL) {
+                                                    $submissionSubmit = mysqli_fetch_assoc($submission);
+                                                    $selected_date = ($row["submission_deadline"]);
                                                     // echo $selected_date, "a ";
                                                     $duration = 14;
                                                     $duration_type = 'day';
@@ -113,17 +113,17 @@ if (isset($_POST["addTopic"])) {
                                             ?>
                                                 <tr>
                                                     <td><?= $i++ ?></td>
-                                                    <td><?php echo $row["topic_name"]; ?></td>
-                                                    <td><?php echo $row["topic_description"]; ?></td>
-                                                    <td><?php echo $row["topic_deadline"]; ?></td>
+                                                    <td><?php echo $row["submission_name"]; ?></td>
+                                                    <td><?php echo $row["submission_description"]; ?></td>
+                                                    <td><?php echo $row["submission_deadline"]; ?></td>
                                                     <td><?php echo $deadline; ?></td>
                                                     <td><span class="badge badge-warning">Processing</span></td>
                                                     <td>
                                                         <div class="btn-group" role="group" aria-label="Basic example">
                                                             <a href="" class="btn btn-info btn-get-info" role="button" data-id="<?= $row['id'] ?>"><i class="mdi mdi-pencil-outline"></i> </a>
-                                                            <a href="" class="btn btn-danger btn-delete-topic" role="button" data-id="<?= $row['id'] ?>"><i class="mdi mdi-delete"></i>
+                                                            <a href="" class="btn btn-danger btn-delete-submission" role="button" data-id="<?= $row['id'] ?>"><i class="mdi mdi-delete"></i>
                                                             </a>
-                                                            <a href="" class="btn btn-primary btn-detail-topic" role="button" data-id="<?= $row['id'] ?>"><i class="mdi mdi-dots-horizontal"></i> </a>
+                                                            <a href="" class="btn btn-primary btn-detail-submission" role="button" data-id="<?= $row['id'] ?>"><i class="mdi mdi-dots-horizontal"></i> </a>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -138,26 +138,26 @@ if (isset($_POST["addTopic"])) {
                     </div>
                 </div>
                 <!-- Modal add faculty -->
-                <div class="modal fade" id="addTopic" tabindex="-1" role="dialog" aria-labelledby="addTopic" aria-hidden="true">
+                <div class="modal fade" id="addSubmission" tabindex="-1" role="dialog" aria-labelledby="addSubmission" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="addTopic">Add Topic</h5>
+                                <h5 class="modal-title" id="addSubmission">Add Submission</h5>
                                 </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="" name="manageTopic" method="POST" enctype="multipart/form-data">
+                                <form action="" name="manageSubmission" method="POST" enctype="multipart/form-data">
 
                                     <div class="form-group">
-                                        <label for="inputName1">Name of Topic</label>
-                                        <input type="text" class="form-control" id="inputTopicName" name="topicName" placeholder="Enter name of topic" required>
+                                        <label for="inputName1">Name of Submission</label>
+                                        <input type="text" class="form-control" id="inputSubmissionName" name="submissionName" placeholder="Enter name of submission" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputName1">Description of Topic</label>
-                                        <input type="text" class="form-control" id="inputTopicDescription" name="topicDescription" placeholder="Enter name of topic" required>
+                                        <label for="inputName1">Description of Submission</label>
+                                        <input type="text" class="form-control" id="inputSubmissionDescription" name="submissionDescription" placeholder="Enter name of submission" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Select Begin Date</label>
@@ -165,7 +165,7 @@ if (isset($_POST["addTopic"])) {
                                     </div>
 
                                     <div class="model-footer">
-                                        <input type="submit" class="btn btn-primary btn-md float-right" name="addTopic" value="Create Topic">
+                                        <input type="submit" class="btn btn-primary btn-md float-right" name="addSubmission" value="Create Submission">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                             Close
                                         </button>
@@ -178,11 +178,11 @@ if (isset($_POST["addTopic"])) {
                 </div>
 
                 <!-- Modal edit -->
-                <div class="modal fade" id="editTopic" tabindex="-1" role="dialog" aria-labelledby="editTopic" aria-hidden="true">
+                <div class="modal fade" id="editSubmission" tabindex="-1" role="dialog" aria-labelledby="editSubmission" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editTopic">Edit Topic</h5>
+                                <h5 class="modal-title" id="editSubmission">Edit Submission</h5>
                                 </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -191,8 +191,8 @@ if (isset($_POST["addTopic"])) {
                             <div class="modal-body">
                                 <form action="">
                                     <div class="form-group">
-                                        <label for="inputNameTopic">Topic Name</label>
-                                        <input type="text" class="form-control" id="topicName" required>
+                                        <label for="inputNameSubmission">Submission Name</label>
+                                        <input type="text" class="form-control" id="submissionName" required>
                                     </div>
 
                                     <div class="form-group">
@@ -206,7 +206,7 @@ if (isset($_POST["addTopic"])) {
                                     </div>
 
                                     <div class="model-footer">
-                                        <input type="button" class="btn btn-warning btn-update-topic" name="change" value="Save Changes">
+                                        <input type="button" class="btn btn-warning btn-update-submission" name="change" value="Save Changes">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                             Close
                                         </button>
@@ -219,12 +219,12 @@ if (isset($_POST["addTopic"])) {
                 </div>
 
                 <!-- Modal Detail -->
-                <div class="modal fade" id="detailTopic" tabindex="-1" role="dialog" aria-labelledby="detailTopic" aria-hidden="true">
+                <div class="modal fade" id="detailSubmission" tabindex="-1" role="dialog" aria-labelledby="detailSubmission" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="detailTopic">Detai
-                                    Infomation Topic
+                                <h5 class="modal-title" id="detailSubmission">Detai
+                                    Infomation Submission
                                 </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -235,11 +235,11 @@ if (isset($_POST["addTopic"])) {
                                     <table class="table table-striped">
                                         <tbody>
                                             <tr>
-                                                <td>Topic Name</td>
+                                                <td>Submission Name</td>
                                                 <td id="t-name"></td>
                                             </tr>
                                             <tr>
-                                                <td>Topic ID</td>
+                                                <td>Submission ID</td>
                                                 <td id="t-id"></td>
                                             </tr>
                                             <tr>
@@ -278,29 +278,29 @@ if (isset($_POST["addTopic"])) {
             let activeId = null;
             $(document).on('click', ".btn-get-info", function(e) {
                 e.preventDefault();
-                const topicId = parseInt($(this).data("id"));
-                activeId = topicId;
-                console.log(topicId)
-                Utils.api("get_topic_info", {
-                    id: topicId
+                const submissionId = parseInt($(this).data("id"));
+                activeId = submissionId;
+                console.log(submissionId)
+                Utils.api("get_submission_info", {
+                    id: submissionId
                 }).then(response => {
-                    console.log(response.data.topic_deadline.split(' ')[0])
-                    $('#topicName').val(response.data.topic_name);
-                    $('#topicCode').val(response.data.topic_id);
-                    $('#description').val(response.data.topic_description);
-                    $('#deadline').val(response.data.topic_deadline.replace(" ", "T").slice(0, -3));
-                    $('#editTopic').modal();
+                    console.log(response.data.submission_deadline.split(' ')[0])
+                    $('#submissionName').val(response.data.submission_name);
+                    $('#submissionCode').val(response.data.submission_id);
+                    $('#description').val(response.data.submission_description);
+                    $('#deadline').val(response.data.submission_deadline.replace(" ", "T").slice(0, -3));
+                    $('#editSubmission').modal();
                 }).catch(err => {
 
                 })
             });
 
-            $(document).on('click', ".btn-update-topic", function(e) {
-                Utils.api('update_topic_info', {
+            $(document).on('click', ".btn-update-submission", function(e) {
+                Utils.api('update_submission_info', {
                     id: activeId,
                     deadline: $("#deadline").val().replace("T", " ") + ":00",
-                    topicName: $('#topicName').val(),
-                    topicCode: $('#topicCode').val(),
+                    submissionName: $('#submissionName').val(),
+                    submissionCode: $('#submissionCode').val(),
                     description: $('#description').val()
                 }).then(response => {
                     $("#editFaculty").modal("hide");
@@ -310,17 +310,17 @@ if (isset($_POST["addTopic"])) {
                 }).catch(err => {})
             })
 
-            $(document).on('click', ".btn-delete-topic", function(e) {
+            $(document).on('click', ".btn-delete-submission", function(e) {
                 e.preventDefault();
                 swal({
                     title: "Please confirm",
-                    text: 'Are sure you want to delete this topic?',
+                    text: 'Are sure you want to delete this submission?',
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
                 }).then((willDelete) => {
                     if (willDelete) {
-                        Utils.api('delete_topic', {
+                        Utils.api('delete_submission', {
                             id: $(this).data('id'),
                         }).then(response => {
                             $("#editFaculty").modal("hide");
@@ -332,17 +332,17 @@ if (isset($_POST["addTopic"])) {
                 });
             });
 
-            $(document).on('click', '.btn-detail-topic', function(e) {
+            $(document).on('click', '.btn-detail-submission', function(e) {
                 e.preventDefault();
-                const topicId = parseInt($(this).data("id"));
-                Utils.api('get_topic_info', {
-                    id: topicId
+                const submissionId = parseInt($(this).data("id"));
+                Utils.api('get_submission_info', {
+                    id: submissionId
                 }).then(response => {
-                    $('#t-name').text(response.data.topic_name);
-                    $('#t-id').text(response.data.topic_id);
-                    $('#t_deadline').text(response.data.topic_deadline)
-                    $('#t-description').text(response.data.topic_description)
-                    $('#detailTopic').modal();
+                    $('#t-name').text(response.data.submission_name);
+                    $('#t-id').text(response.data.submission_id);
+                    $('#t_deadline').text(response.data.submission_deadline)
+                    $('#t-description').text(response.data.submission_description)
+                    $('#detailSubmission').modal();
                 }).catch(err => {
 
                 })

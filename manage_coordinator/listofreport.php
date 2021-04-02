@@ -1,6 +1,6 @@
 <?php
 include "../config.php";
-$idTopic = $_GET['idt'];
+$idSubmission = $_GET['idt'];
 $userFacultyId = $_SESSION["current_user"]["faculty_id"];
 $userId = $_SESSION["current_user"]["u_id"];
 
@@ -12,8 +12,8 @@ $userId = $_SESSION["current_user"]["u_id"];
 // $faculty = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM faculty WHERE f_id = $file_faculty_id"), MYSQLI_ASSOC);
 
 $studentSb = array();
-//$res = $conn->query("SELECT files.*, u.*,f.* FROM file_submit_to_topic as files INNER JOIN user as u ON files.file_userId_uploaded = u.u_id INNER JOIN faculty.f_id = user.faculty_id WHERE u.role = 'student' AND files.file_topic_uploaded = '$idTopic' ORDER BY id DESC LIMIT 1");
-$result = $conn->query("SELECT file_submit_to_topic.*, user.*,faculty.* FROM file_submit_to_topic INNER JOIN user ON file_submit_to_topic.file_userId_uploaded = user.u_id INNER JOIN faculty ON faculty.f_id = user.faculty_id WHERE user.role = 'student' AND user.faculty_id = '$userFacultyId' AND file_submit_to_topic.file_topic_uploaded = '$idTopic'  ");
+//$res = $conn->query("SELECT files.*, u.*,f.* FROM file_submit_to_submission as files INNER JOIN user as u ON files.file_userId_uploaded = u.u_id INNER JOIN faculty.f_id = user.faculty_id WHERE u.role = 'student' AND files.file_submission_uploaded = '$idSubmission' ORDER BY id DESC LIMIT 1");
+$result = $conn->query("SELECT file_submit_to_submission.*, user.*,faculty.* FROM file_submit_to_submission INNER JOIN user ON file_submit_to_submission.file_userId_uploaded = user.u_id INNER JOIN faculty ON faculty.f_id = user.faculty_id WHERE user.role = 'student' AND user.faculty_id = '$userFacultyId' AND file_submit_to_submission.file_submission_uploaded = '$idSubmission'  ");
 
 
 while ($rowSt = mysqli_fetch_array($result)) {

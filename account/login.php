@@ -124,7 +124,7 @@ if (isset($_POST["login"])) {
         $userCurrent =  $_SESSION["current_user"] = $user;
     ?>
         <script type="text/javascript">
-            window.location = "../manage_coordinator/my_topic.php";
+            window.location = "../manage_coordinator/my_submission.php";
         </script>
     <?php
     } elseif ($status == "1" && $role == "manager-marketing") {

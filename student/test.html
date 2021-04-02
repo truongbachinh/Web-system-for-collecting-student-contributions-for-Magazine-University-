@@ -17,7 +17,7 @@
 <meta property="og:image"
     content="https://cdn.dribbble.com/users/180706/screenshots/5424805/the_sceens_-_mobile_perspective_mockup_3_-_by_tranmautritam.jpg" />
 <meta property="og:site_name" content="atlas " />
-<title>Manage Topic</title>
+<title>Manage Submission</title>
 <link rel="icon" type="image/x-icon" href="assets/img/logo.png" />
 <link rel="icon" href="assets/img/logo.png" type="image/png" sizes="16x16">
 <link rel='stylesheet'
@@ -50,14 +50,14 @@
         <?php include 'header.php' ?>
         <!-- Session -->
 
-        <section class="manage-topic">
+        <section class="manage-submission">
             <div class="container m-t-30">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
                                 <div class="card-title">
-                                    <h4> Manage Topic </h4>
+                                    <h4> Manage Submission </h4>
                                 </div>
 
                                 <div class="card-body">
@@ -70,7 +70,7 @@
                                         </div>
                                         <div class="col-sm-6 ">
                                             <a href="" class="btn btn-info float-right" role="button"
-                                                data-toggle="modal" data-target="#addTopic"><i
+                                                data-toggle="modal" data-target="#addSubmission"><i
                                                     class="mdi mdi-clipboard-plus"></i> Add Faculty
                                             </a>
                                         </div>
@@ -81,7 +81,7 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>ID</th>
-                                                    <th>Topic Name</th>
+                                                    <th>Submission Name</th>
                                                     <th>Faculty Manager</th>
                                                     <th>Deadline</th>
                                                     <th>Articles</th>
@@ -92,7 +92,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td>1</td>
-                                                    <td>Topic_01</td>
+                                                    <td>Submission_01</td>
                                                     <td>Advance Computing</td>
                                                     <td>Nguyen Van A</td>
                                                     <td>12/01/2020</td>
@@ -100,13 +100,13 @@
                                                     <td>Processing</td>
                                                     <td>
                                                         <a href="" class="btn btn-info" role="button"
-                                                            data-toggle="modal" data-target="#editTopic"><i
+                                                            data-toggle="modal" data-target="#editSubmission"><i
                                                                 class="mdi mdi-pencil-outline"></i> </a>
                                                         <a href="" class="btn btn-danger" role="button"
-                                                            data-toggle="modal" data-target="#deleteTopic"><i
+                                                            data-toggle="modal" data-target="#deleteSubmission"><i
                                                                 class="mdi mdi-delete"></i> </a>
                                                         <a href="" class="btn btn-primary" role="button"
-                                                            data-toggle="modal" data-target="#detailTopic"><i
+                                                            data-toggle="modal" data-target="#detailSubmission"><i
                                                                 class="mdi mdi-dots-horizontal"></i> </a>
                                                     </td>
                                                 </tr>
@@ -114,12 +114,12 @@
                                         </table>
 
                                         <!-- Modal add faculty -->
-                                        <div class="modal fade" id="addTopic" tabindex="-1" role="dialog"
-                                            aria-labelledby="addTopic" aria-hidden="true">
+                                        <div class="modal fade" id="addSubmission" tabindex="-1" role="dialog"
+                                            aria-labelledby="addSubmission" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="addTopic">Add Topic</h5>
+                                                        <h5 class="modal-title" id="addSubmission">Add Submission</h5>
                                                         </h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
@@ -129,19 +129,19 @@
                                                     <div class="modal-body">
                                                         <form action="">
                                                             <div class="form-group">
-                                                                <label for="inputNameTopic">Topic Name</label>
+                                                                <label for="inputNameSubmission">Submission Name</label>
                                                                 <input type="text" class="form-control"
-                                                                    id="inputNameTopic" name="nameTopic"
+                                                                    id="inputNameSubmission" name="nameSubmission"
                                                                     placeholder="Input name" required>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="inputTopicId">Topic ID</label>
+                                                                <label for="inputSubmissionId">Submission ID</label>
                                                                 <input type="text" class="form-control"
-                                                                    id="inputTopicId" name="topicId"
+                                                                    id="inputSubmissionId" name="submissionId"
                                                                     placeholder="Input Id" required>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="inputIdManager">Manager Topic</label>
+                                                                <label for="inputIdManager">Manager Submission</label>
                                                                 <input type="text" class="form-control"
                                                                     placeholder="Input name" required>
                                                             </div>
@@ -153,7 +153,7 @@
 
                                                             <div class="model-footer">
                                                                 <input type="button" class="btn btn-warning"
-                                                                    name="change" value="Create Topic">
+                                                                    name="change" value="Create Submission">
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-dismiss="modal">
                                                                     Close
@@ -167,12 +167,13 @@
 
                                             <!-- Modal edit -->
 
-                                            <div class="modal fade" id="editTopic" tabindex="-1" role="dialog"
-                                                aria-labelledby="editTopic" aria-hidden="true">
+                                            <div class="modal fade" id="editSubmission" tabindex="-1" role="dialog"
+                                                aria-labelledby="editSubmission" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="editTopic">Edit Topic</h5>
+                                                            <h5 class="modal-title" id="editSubmission">Edit Submission
+                                                            </h5>
                                                             </h5>
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
@@ -182,20 +183,22 @@
                                                         <div class="modal-body">
                                                             <form action="">
                                                                 <div class="form-group">
-                                                                    <label for="inputNameTopic">Topic Name</label>
+                                                                    <label for="inputNameSubmission">Submission
+                                                                        Name</label>
                                                                     <input type="text" class="form-control"
-                                                                        id="inputNameTopic" name="nameTopic"
+                                                                        id="inputNameSubmission" name="nameSubmission"
                                                                         placeholder="Input name" required>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label for="inputTopicId">Topic ID</label>
+                                                                    <label for="inputSubmissionId">Submission ID</label>
                                                                     <input type="text" class="form-control"
-                                                                        id="inputTopicId" name="topicId"
+                                                                        id="inputSubmissionId" name="submissionId"
                                                                         placeholder="Input Id" disabled
-                                                                        value="Topic_01">
+                                                                        value="Submission_01">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label for="inputIdManager">Manager Topic</label>
+                                                                    <label for="inputIdManager">Manager
+                                                                        Submission</label>
                                                                     <input type="text" class="form-control"
                                                                         placeholder="Input name" value="Nguyen Van A">
                                                                 </div>
@@ -288,7 +291,7 @@
                                                                                 <td>Nguyen Van A</td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td>Amount of Topic</td>
+                                                                                <td>Amount of Submission</td>
                                                                                 <td>2</td>
                                                                             </tr>
                                                                             <tr>

@@ -5,10 +5,10 @@ include "../config.php";
 $userId = $_SESSION["current_user"]["u_id"];
 
 
-$idTopic = $_GET["idt"];
+$idSubmission = $_GET["idt"];
 
-$topic = $conn->query("SELECT * from topic where id = '$idTopic' ");
-$topicSubmit = mysqli_fetch_assoc($topic);
+$submission = $conn->query("SELECT * from submission where id = '$idSubmission' ");
+$submissionSubmit = mysqli_fetch_assoc($submission);
 $userInfor = $conn->query("SELECT faculty.*,user.* from faculty INNER JOIN user ON faculty.f_id = user.faculty_id where u_id = '$userId' ");
 $userInforFaculty = mysqli_fetch_assoc($userInfor);
 
@@ -16,14 +16,14 @@ $userInforFaculty = mysqli_fetch_assoc($userInfor);
 //     $userInforFaculty[] = $rowInfor;
 // }
 
-//$file = $conn->query("SELECT * from file_submit_to_topic where file_userId_uploaded = '$userId' AND `file_topic_uploaded` = '$idTopic' AND `id` = (SELECT MAX(id) from `file_submit_to_topic` where `file_userId_uploaded` = '$userId' ) ");
-$file = $conn->query("SELECT * from file_submit_to_topic where file_userId_uploaded = '$userId' AND `file_topic_uploaded` = '$idTopic' ORDER BY id DESC LIMIT 1 ");
+//$file = $conn->query("SELECT * from file_submit_to_submission where file_userId_uploaded = '$userId' AND `file_submission_uploaded` = '$idSubmission' AND `id` = (SELECT MAX(id) from `file_submit_to_submission` where `file_userId_uploaded` = '$userId' ) ");
+$file = $conn->query("SELECT * from file_submit_to_submission where file_userId_uploaded = '$userId' AND `file_submission_uploaded` = '$idSubmission' ORDER BY id DESC LIMIT 1 ");
 if ($file == true) {
     $fileSubmit = mysqli_fetch_assoc($file);
 }
 
 
-$selected_date = ($topicSubmit["topic_deadline"]);
+$selected_date = ($submissionSubmit["submission_deadline"]);
 // echo $selected_date, "a ";
 $duration = 14;
 $duration_type = 'day';
@@ -71,14 +71,14 @@ if ($years != 0) {
 if (isset($_POST['uploadFile'])) {
     $fileType = "";
     $count = 0;
-    $res = mysqli_query($conn, "SELECT * from file_submit_to_topic where file_submit_to_topic.file_userId_uploaded = '$userId' AND file_submit_to_topic.file_topic_uploaded = '$idTopic'");
+    $res = mysqli_query($conn, "SELECT * from file_submit_to_submission where file_submit_to_submission.file_userId_uploaded = '$userId' AND file_submit_to_submission.file_submission_uploaded = '$idSubmission'");
     $count = mysqli_num_rows($res);
     if ($count > 0) {
-        $delete_query = $conn->query("DELETE FROM file_submit_to_topic where file_submit_to_topic.file_userId_uploaded = '$userId' AND file_submit_to_topic.file_topic_uploaded = '$idTopic' ");
+        $delete_query = $conn->query("DELETE FROM file_submit_to_submission where file_submit_to_submission.file_userId_uploaded = '$userId' AND file_submit_to_submission.file_submission_uploaded = '$idSubmission' ");
     }
 
 
-    $upload_query = $conn->query("INSERT INTO `file_submit_to_topic` (`id`, `file_name`, `file_authod`, `file_status`, `file_date_uploaded`,  `file_topic_uploaded`, `file_userId_uploaded`) VALUES (NULL, '$_POST[nameArticle]', '$userInforFaculty[fullname]', '1', '" . $timeSubmitFile . "', '$idTopic', '$userId')");
+    $upload_query = $conn->query("INSERT INTO `file_submit_to_submission` (`id`, `file_name`, `file_authod`, `file_status`, `file_date_uploaded`,  `file_submission_uploaded`, `file_userId_uploaded`) VALUES (NULL, '$_POST[nameArticle]', '$userInforFaculty[fullname]', '1', '" . $timeSubmitFile . "', '$idSubmission', '$userId')");
     $tm = md5(time());
     $uploadPath = "./file_library/";
 
@@ -149,7 +149,7 @@ if (isset($_POST['uploadFile'])) {
 
 ?>
         <script>
-            window.location.replace("./submit.php?idt=<?= $idTopic ?>")
+            window.location.replace("./submit.php?idt=<?= $idSubmission ?>")
         </script>
 <?php
 
@@ -208,7 +208,7 @@ if (isset($_POST['uploadFile'])) {
                         <br>
                         <br>
                         <h5>
-                            This is topic <span style="color:red"> <?= $topicSubmit['topic_name'] ?></span>
+                            This is submission <span style="color:red"> <?= $submissionSubmit['submission_name'] ?></span>
                         </h5>
                         <p class="m-b-0 text-muted">
                         </p>
@@ -262,7 +262,7 @@ if (isset($_POST['uploadFile'])) {
                                 <tr>
                                     <td>Deadline date</td>
                                     <td>
-                                        <?php echo (!empty($topicSubmit["topic_deadline"]) ?  $deadline : "Not submited");
+                                        <?php echo (!empty($submissionSubmit["submission_deadline"]) ?  $deadline : "Not submited");
                                         ?>
 
                                     </td>
@@ -298,7 +298,7 @@ if (isset($_POST['uploadFile'])) {
                                     <td> Comment of report</td>
                                     <td>
                                         <?php
-                                        $fileInfor = $conn->query("SELECT file_comment.*, user.*,file_submit_to_topic.* FROM (( user INNER JOIN file_comment ON file_comment.file_comment_user = user.u_id) INNER JOIN file_submit_to_topic ON file_submit_to_topic.id = file_comment.file_submited_id) WHERE `file_userId_uploaded` = '$userId' AND `file_topic_uploaded` = '$idTopic'");
+                                        $fileInfor = $conn->query("SELECT file_comment.*, user.*,file_submit_to_submission.* FROM (( user INNER JOIN file_comment ON file_comment.file_comment_user = user.u_id) INNER JOIN file_submit_to_submission ON file_submit_to_submission.id = file_comment.file_submited_id) WHERE `file_userId_uploaded` = '$userId' AND `file_submission_uploaded` = '$idSubmission'");
 
                                         $commentContentFile = array();
                                         while ($rowCmt =  mysqli_fetch_array($fileInfor)) {

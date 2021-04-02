@@ -32,22 +32,22 @@ class Google_Service_Gmail extends Google_Service
 {
   /** View and manage your mail. */
   const MAIL_GOOGLE_COM =
-      "https://mail.google.com";
+  "https://mail.google.com";
   /** Manage drafts and send emails. */
   const GMAIL_COMPOSE =
-      "https://www.googleapis.com/auth/gmail.compose";
+  "https://www.googleapis.com/auth/gmail.compose";
   /** Insert mail into your mailbox. */
   const GMAIL_INSERT =
-      "https://www.googleapis.com/auth/gmail.insert";
+  "https://www.googleapis.com/auth/gmail.insert";
   /** Manage mailbox labels. */
   const GMAIL_LABELS =
-      "https://www.googleapis.com/auth/gmail.labels";
+  "https://www.googleapis.com/auth/gmail.labels";
   /** View and modify but not delete your email. */
   const GMAIL_MODIFY =
-      "https://www.googleapis.com/auth/gmail.modify";
+  "https://www.googleapis.com/auth/gmail.modify";
   /** View your emails messages and settings. */
   const GMAIL_READONLY =
-      "https://www.googleapis.com/auth/gmail.readonly";
+  "https://www.googleapis.com/auth/gmail.readonly";
 
   public $users;
   public $users_drafts;
@@ -56,7 +56,7 @@ class Google_Service_Gmail extends Google_Service
   public $users_messages;
   public $users_messages_attachments;
   public $users_threads;
-  
+
 
   /**
    * Constructs the internal representation of the Gmail service.
@@ -72,601 +72,601 @@ class Google_Service_Gmail extends Google_Service
     $this->serviceName = 'gmail';
 
     $this->users = new Google_Service_Gmail_Users_Resource(
-        $this,
-        $this->serviceName,
-        'users',
-        array(
-          'methods' => array(
-            'getProfile' => array(
-              'path' => '{userId}/profile',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'stop' => array(
-              'path' => '{userId}/stop',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'watch' => array(
-              'path' => '{userId}/watch',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'users',
+      array(
+        'methods' => array(
+          'getProfile' => array(
+            'path' => '{userId}/profile',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'stop' => array(
+            'path' => '{userId}/stop',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'watch' => array(
+            'path' => '{userId}/watch',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->users_drafts = new Google_Service_Gmail_UsersDrafts_Resource(
-        $this,
-        $this->serviceName,
-        'drafts',
-        array(
-          'methods' => array(
-            'create' => array(
-              'path' => '{userId}/drafts',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'delete' => array(
-              'path' => '{userId}/drafts/{id}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'get' => array(
-              'path' => '{userId}/drafts/{id}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'format' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'list' => array(
-              'path' => '{userId}/drafts',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-              ),
-            ),'send' => array(
-              'path' => '{userId}/drafts/send',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'update' => array(
-              'path' => '{userId}/drafts/{id}',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'drafts',
+      array(
+        'methods' => array(
+          'create' => array(
+            'path' => '{userId}/drafts',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'delete' => array(
+            'path' => '{userId}/drafts/{id}',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'get' => array(
+            'path' => '{userId}/drafts/{id}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'format' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'list' => array(
+            'path' => '{userId}/drafts',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'maxResults' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+            ),
+          ), 'send' => array(
+            'path' => '{userId}/drafts/send',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'update' => array(
+            'path' => '{userId}/drafts/{id}',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->users_history = new Google_Service_Gmail_UsersHistory_Resource(
-        $this,
-        $this->serviceName,
-        'history',
-        array(
-          'methods' => array(
-            'list' => array(
-              'path' => '{userId}/history',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'labelId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'startHistoryId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'history',
+      array(
+        'methods' => array(
+          'list' => array(
+            'path' => '{userId}/history',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'maxResults' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'labelId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'startHistoryId' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ),
         )
+      )
     );
     $this->users_labels = new Google_Service_Gmail_UsersLabels_Resource(
-        $this,
-        $this->serviceName,
-        'labels',
-        array(
-          'methods' => array(
-            'create' => array(
-              'path' => '{userId}/labels',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'delete' => array(
-              'path' => '{userId}/labels/{id}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'get' => array(
-              'path' => '{userId}/labels/{id}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => '{userId}/labels',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'patch' => array(
-              'path' => '{userId}/labels/{id}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'update' => array(
-              'path' => '{userId}/labels/{id}',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'labels',
+      array(
+        'methods' => array(
+          'create' => array(
+            'path' => '{userId}/labels',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'delete' => array(
+            'path' => '{userId}/labels/{id}',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'get' => array(
+            'path' => '{userId}/labels/{id}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'list' => array(
+            'path' => '{userId}/labels',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'patch' => array(
+            'path' => '{userId}/labels/{id}',
+            'httpMethod' => 'PATCH',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'update' => array(
+            'path' => '{userId}/labels/{id}',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->users_messages = new Google_Service_Gmail_UsersMessages_Resource(
-        $this,
-        $this->serviceName,
-        'messages',
-        array(
-          'methods' => array(
-            'delete' => array(
-              'path' => '{userId}/messages/{id}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'messages',
+      array(
+        'methods' => array(
+          'delete' => array(
+            'path' => '{userId}/messages/{id}',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
-            ),'get' => array(
-              'path' => '{userId}/messages/{id}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'metadataHeaders' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'format' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'import' => array(
-              'path' => '{userId}/messages/import',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'deleted' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'processForCalendar' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'internalDateSource' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'neverMarkSpam' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-              ),
-            ),'insert' => array(
-              'path' => '{userId}/messages',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'deleted' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'internalDateSource' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'list' => array(
-              'path' => '{userId}/messages',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'q' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'includeSpamTrash' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'labelIds' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-              ),
-            ),'modify' => array(
-              'path' => '{userId}/messages/{id}/modify',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'send' => array(
-              'path' => '{userId}/messages/send',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'trash' => array(
-              'path' => '{userId}/messages/{id}/trash',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'untrash' => array(
-              'path' => '{userId}/messages/{id}/untrash',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'get' => array(
+            'path' => '{userId}/messages/{id}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'metadataHeaders' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'repeated' => true,
+              ),
+              'format' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'import' => array(
+            'path' => '{userId}/messages/import',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'deleted' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'processForCalendar' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'internalDateSource' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'neverMarkSpam' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+            ),
+          ), 'insert' => array(
+            'path' => '{userId}/messages',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'deleted' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'internalDateSource' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'list' => array(
+            'path' => '{userId}/messages',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'maxResults' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'q' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'includeSpamTrash' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'labelIds' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'repeated' => true,
+              ),
+            ),
+          ), 'modify' => array(
+            'path' => '{userId}/messages/{id}/modify',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'send' => array(
+            'path' => '{userId}/messages/send',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'trash' => array(
+            'path' => '{userId}/messages/{id}/trash',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'untrash' => array(
+            'path' => '{userId}/messages/{id}/untrash',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->users_messages_attachments = new Google_Service_Gmail_UsersMessagesAttachments_Resource(
-        $this,
-        $this->serviceName,
-        'attachments',
-        array(
-          'methods' => array(
-            'get' => array(
-              'path' => '{userId}/messages/{messageId}/attachments/{id}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'messageId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'attachments',
+      array(
+        'methods' => array(
+          'get' => array(
+            'path' => '{userId}/messages/{messageId}/attachments/{id}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'messageId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ),
         )
+      )
     );
     $this->users_threads = new Google_Service_Gmail_UsersThreads_Resource(
-        $this,
-        $this->serviceName,
-        'threads',
-        array(
-          'methods' => array(
-            'delete' => array(
-              'path' => '{userId}/threads/{id}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'threads',
+      array(
+        'methods' => array(
+          'delete' => array(
+            'path' => '{userId}/threads/{id}',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
-            ),'get' => array(
-              'path' => '{userId}/threads/{id}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'metadataHeaders' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'format' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'list' => array(
-              'path' => '{userId}/threads',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'q' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'includeSpamTrash' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'labelIds' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-              ),
-            ),'modify' => array(
-              'path' => '{userId}/threads/{id}/modify',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'trash' => array(
-              'path' => '{userId}/threads/{id}/trash',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'untrash' => array(
-              'path' => '{userId}/threads/{id}/untrash',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'userId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'get' => array(
+            'path' => '{userId}/threads/{id}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'metadataHeaders' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'repeated' => true,
+              ),
+              'format' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'list' => array(
+            'path' => '{userId}/threads',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'maxResults' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'q' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'includeSpamTrash' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'labelIds' => array(
+                'location' => 'query',
+                'type' => 'string',
+                'repeated' => true,
+              ),
+            ),
+          ), 'modify' => array(
+            'path' => '{userId}/threads/{id}/modify',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'trash' => array(
+            'path' => '{userId}/threads/{id}/trash',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'untrash' => array(
+            'path' => '{userId}/threads/{id}/untrash',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'userId' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'id' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
   }
 }
@@ -1346,8 +1346,7 @@ class Google_Service_Gmail_UsersThreads_Resource extends Google_Service_Resource
 
 class Google_Service_Gmail_Draft extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $id;
   protected $messageType = 'Google_Service_Gmail_Message';
   protected $messageDataType = '';
@@ -1374,8 +1373,7 @@ class Google_Service_Gmail_Draft extends Google_Model
 class Google_Service_Gmail_History extends Google_Collection
 {
   protected $collection_key = 'messagesDeleted';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $id;
   protected $labelsAddedType = 'Google_Service_Gmail_HistoryLabelAdded';
   protected $labelsAddedDataType = 'array';
@@ -1442,8 +1440,7 @@ class Google_Service_Gmail_History extends Google_Collection
 class Google_Service_Gmail_HistoryLabelAdded extends Google_Collection
 {
   protected $collection_key = 'labelIds';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $labelIds;
   protected $messageType = 'Google_Service_Gmail_Message';
   protected $messageDataType = '';
@@ -1470,8 +1467,7 @@ class Google_Service_Gmail_HistoryLabelAdded extends Google_Collection
 class Google_Service_Gmail_HistoryLabelRemoved extends Google_Collection
 {
   protected $collection_key = 'labelIds';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $labelIds;
   protected $messageType = 'Google_Service_Gmail_Message';
   protected $messageDataType = '';
@@ -1497,8 +1493,7 @@ class Google_Service_Gmail_HistoryLabelRemoved extends Google_Collection
 
 class Google_Service_Gmail_HistoryMessageAdded extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $messageType = 'Google_Service_Gmail_Message';
   protected $messageDataType = '';
 
@@ -1515,8 +1510,7 @@ class Google_Service_Gmail_HistoryMessageAdded extends Google_Model
 
 class Google_Service_Gmail_HistoryMessageDeleted extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $messageType = 'Google_Service_Gmail_Message';
   protected $messageDataType = '';
 
@@ -1533,8 +1527,7 @@ class Google_Service_Gmail_HistoryMessageDeleted extends Google_Model
 
 class Google_Service_Gmail_Label extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $id;
   public $labelListVisibility;
   public $messageListVisibility;
@@ -1623,8 +1616,7 @@ class Google_Service_Gmail_Label extends Google_Model
 class Google_Service_Gmail_ListDraftsResponse extends Google_Collection
 {
   protected $collection_key = 'drafts';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $draftsType = 'Google_Service_Gmail_Draft';
   protected $draftsDataType = 'array';
   public $nextPageToken;
@@ -1660,8 +1652,7 @@ class Google_Service_Gmail_ListDraftsResponse extends Google_Collection
 class Google_Service_Gmail_ListHistoryResponse extends Google_Collection
 {
   protected $collection_key = 'history';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $historyType = 'Google_Service_Gmail_History';
   protected $historyDataType = 'array';
   public $historyId;
@@ -1697,8 +1688,7 @@ class Google_Service_Gmail_ListHistoryResponse extends Google_Collection
 class Google_Service_Gmail_ListLabelsResponse extends Google_Collection
 {
   protected $collection_key = 'labels';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $labelsType = 'Google_Service_Gmail_Label';
   protected $labelsDataType = 'array';
 
@@ -1716,8 +1706,7 @@ class Google_Service_Gmail_ListLabelsResponse extends Google_Collection
 class Google_Service_Gmail_ListMessagesResponse extends Google_Collection
 {
   protected $collection_key = 'messages';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $messagesType = 'Google_Service_Gmail_Message';
   protected $messagesDataType = 'array';
   public $nextPageToken;
@@ -1753,8 +1742,7 @@ class Google_Service_Gmail_ListMessagesResponse extends Google_Collection
 class Google_Service_Gmail_ListThreadsResponse extends Google_Collection
 {
   protected $collection_key = 'threads';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $nextPageToken;
   public $resultSizeEstimate;
   protected $threadsType = 'Google_Service_Gmail_Thread';
@@ -1790,8 +1778,7 @@ class Google_Service_Gmail_ListThreadsResponse extends Google_Collection
 class Google_Service_Gmail_Message extends Google_Collection
 {
   protected $collection_key = 'labelIds';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $historyId;
   public $id;
   public $internalDate;
@@ -1881,8 +1868,7 @@ class Google_Service_Gmail_Message extends Google_Collection
 class Google_Service_Gmail_MessagePart extends Google_Collection
 {
   protected $collection_key = 'parts';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $bodyType = 'Google_Service_Gmail_MessagePartBody';
   protected $bodyDataType = '';
   public $filename;
@@ -1946,8 +1932,7 @@ class Google_Service_Gmail_MessagePart extends Google_Collection
 
 class Google_Service_Gmail_MessagePartBody extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $attachmentId;
   public $data;
   public $size;
@@ -1981,8 +1966,7 @@ class Google_Service_Gmail_MessagePartBody extends Google_Model
 
 class Google_Service_Gmail_MessagePartHeader extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $name;
   public $value;
 
@@ -2008,8 +1992,7 @@ class Google_Service_Gmail_MessagePartHeader extends Google_Model
 class Google_Service_Gmail_ModifyMessageRequest extends Google_Collection
 {
   protected $collection_key = 'removeLabelIds';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $addLabelIds;
   public $removeLabelIds;
 
@@ -2035,8 +2018,7 @@ class Google_Service_Gmail_ModifyMessageRequest extends Google_Collection
 class Google_Service_Gmail_ModifyThreadRequest extends Google_Collection
 {
   protected $collection_key = 'removeLabelIds';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $addLabelIds;
   public $removeLabelIds;
 
@@ -2061,8 +2043,7 @@ class Google_Service_Gmail_ModifyThreadRequest extends Google_Collection
 
 class Google_Service_Gmail_Profile extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $emailAddress;
   public $historyId;
   public $messagesTotal;
@@ -2106,8 +2087,7 @@ class Google_Service_Gmail_Profile extends Google_Model
 class Google_Service_Gmail_Thread extends Google_Collection
 {
   protected $collection_key = 'messages';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $historyId;
   public $id;
   protected $messagesType = 'Google_Service_Gmail_Message';
@@ -2152,11 +2132,10 @@ class Google_Service_Gmail_Thread extends Google_Collection
 class Google_Service_Gmail_WatchRequest extends Google_Collection
 {
   protected $collection_key = 'labelIds';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $labelFilterAction;
   public $labelIds;
-  public $topicName;
+  public $submissionName;
 
 
   public function setLabelFilterAction($labelFilterAction)
@@ -2175,20 +2154,19 @@ class Google_Service_Gmail_WatchRequest extends Google_Collection
   {
     return $this->labelIds;
   }
-  public function setTopicName($topicName)
+  public function setSubmissionName($submissionName)
   {
-    $this->topicName = $topicName;
+    $this->submissionName = $submissionName;
   }
-  public function getTopicName()
+  public function getSubmissionName()
   {
-    return $this->topicName;
+    return $this->submissionName;
   }
 }
 
 class Google_Service_Gmail_WatchResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $expiration;
   public $historyId;
 

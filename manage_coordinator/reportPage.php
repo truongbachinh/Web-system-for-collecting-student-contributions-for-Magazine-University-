@@ -15,7 +15,7 @@ $fileContent = $conn->query("SELECT * from `file_content` where `file_submit_Id`
 if (isset($_POST['uploadCommnet'])) {
 
     $uploadCmt = $conn->query("INSERT INTO `file_comment` (`file_comment_id`, `file_comment_content`, `file_comment_time`, `file_comment_user`, `file_submited_id`) VALUES (NULL, '$_POST[commentContent]', '" . time() . "', '$userId', '$idFile'); ");
-    $changeStatus = $conn->query("UPDATE `file_submit_to_topic` SET `file_status` = '$_POST[statusOfFile]' where `id` = '$idFile'");
+    $changeStatus = $conn->query("UPDATE `file_submit_to_submission` SET `file_status` = '$_POST[statusOfFile]' where `id` = '$idFile'");
 }
 ?>
 <!DOCTYPE html>
@@ -92,7 +92,7 @@ if (isset($_POST['uploadCommnet'])) {
                                     </div>
                                     <div class="col-md-8 mt-1">
                                         <h5 style="color: #000; ">Nguyen Minh Phong</h5>
-                                        <h5 style="color: #000; ">Topic Cloud computing</h6>
+                                        <h5 style="color: #000; ">Submission Cloud computing</h6>
                                     </div>
                                 </div>
                                 <div class=" col-lg-12 text-left ">

@@ -19,7 +19,7 @@ if (isset($_POST['addNewUser'])) {
 
     if ($count > 0) {
 
-        $msg = "Topic Id exits!";
+        $msg = "Submission Id exits!";
     } else {
 
 
@@ -47,7 +47,7 @@ if (isset($_POST['addNewUser'])) {
 
         <!-- PLACE CODE INSIDE THIS AREA -->
 
-        <section class="manage-topic">
+        <section class="manage-submission">
             <div class="container m-t-30">
                 <div class="row">
                     <div class="col-12">
@@ -136,11 +136,11 @@ if (isset($_POST['addNewUser'])) {
 
                 <!--            Add User-->
 
-                <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="editTopic" aria-hidden="true">
+                <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="editSubmission" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editTopic">Create User</h5>
+                                <h5 class="modal-title" id="editSubmission">Create User</h5>
                                 </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -212,11 +212,11 @@ if (isset($_POST['addNewUser'])) {
                 </div>
 
                 <!-- Modal edit -->
-                <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="editTopic" aria-hidden="true">
+                <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="editSubmission" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editTopic">Edit User Information</h5>
+                                <h5 class="modal-title" id="editSubmission">Edit User Information</h5>
                                 </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -273,11 +273,11 @@ if (isset($_POST['addNewUser'])) {
                 </div>
 
                 <!-- Modal Detail -->
-                <div class="modal fade" id="userDetail" tabindex="-1" role="dialog" aria-labelledby="detailTopic" aria-hidden="true">
+                <div class="modal fade" id="userDetail" tabindex="-1" role="dialog" aria-labelledby="detailSubmission" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="detailTopic">Detail
+                                <h5 class="modal-title" id="detailSubmission">Detail
                                     Information User
                                 </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
