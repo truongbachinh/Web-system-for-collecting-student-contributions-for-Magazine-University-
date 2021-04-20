@@ -4,19 +4,20 @@ $userId = $_SESSION["current_user"]["u_id"];
 
 ?>
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <?php include "./partials/html_header.php"; ?>
-        <style>
-            label.error {
-                margin-top: 10px;
-                color: red;
-            }
-        </style>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
 
-    <body class="sidebar-pinned ">
+<head>
+    <?php include "./partials/html_header.php"; ?>
+    <style>
+        label.error {
+            margin-top: 10px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body class="sidebar-pinned ">
     <?php include './partials/aside.php' ?>
     <main class="admin-main">
         <!-- Header -->
@@ -35,22 +36,18 @@ $userId = $_SESSION["current_user"]["u_id"];
                         </p>
                     </div>
                     <div class="card-body ">
-                        <form action="" id="changePass" name="formPassword" method="post" class="form-horizontal"
-                              enctype="multipart/form-data">
+                        <form action="" id="changePass" name="formPassword" method="post" class="form-horizontal" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="inputOldPass1">Old Password</label>
-                                <input type="text" class="form-control" id="inputOldPass1" name="oldPassword"
-                                       placeholder="Enter old password." required>
+                                <input type="text" class="form-control" id="inputOldPass1" name="oldPassword" placeholder="Enter old password." required>
                             </div>
                             <div class="form-group">
                                 <label for="inputNewPass1">New Password</label>
-                                <input type="text" class="form-control" id="inputNewPass1" name="newPassword"
-                                       placeholder="Enter new password." required>
+                                <input type="text" class="form-control" id="inputNewPass1" name="newPassword" placeholder="Enter new password." required>
                             </div>
                             <div class="form-group">
                                 <label for="inputNewPass2">Confirm New Password</label>
-                                <input type="text" class="form-control" id="inputNewPass2" name="confirmPassword"
-                                       placeholder="Comfirm new password." required>
+                                <input type="text" class="form-control" id="inputNewPass2" name="confirmPassword" placeholder="Comfirm new password." required>
                             </div>
                             <div class="alert alert-success" id="success" style="margin-top: 10px; display: none">
                                 <strong>Success!</strong> Change password success!
@@ -96,7 +93,7 @@ $userId = $_SESSION["current_user"]["u_id"];
     <script src='https://d33wubrfki0l68.cloudfront.net/js/d678dabfdc5c3131d492af7ef517fbe46fbbd8e4/light/assets/js/dashboard-01.js'></script>
     <script src="../assets/vendor/jquery.validate/jquery.validate.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $("#changePass").validate({
                 rules: {
                     oldPassword: {
@@ -127,11 +124,10 @@ $userId = $_SESSION["current_user"]["u_id"];
                 },
             })
         })
-
     </script>
-    </body>
+</body>
 
-    </html>
+</html>
 
 
 <?php
@@ -144,33 +140,33 @@ if (isset($_POST["changePassword"])) {
 
     if ($pOldPassword != $oldPassword) {
 
-        ?>
+?>
         <script type="text/javascript">
             document.getElementById("checkpass").style.display = "none";
             document.getElementById("success").style.display = "none";
             document.getElementById("failure").style.display = "block"
         </script>
-        <?php
+    <?php
     } elseif ($pNewPassword != $pConfirmPassword) {
 
-        ?>
+    ?>
         <script type="text/javascript">
             document.getElementById("checkpass").style.display = "block";
             document.getElementById("success").style.display = "none";
             document.getElementById("failure").style.display = "none"
         </script>
-        <?php
+    <?php
     } elseif (($pOldPassword == $oldPassword) && ($pNewPassword != $oldPassword)) {
         mysqli_query($conn, "update user set `password` = '$pNewPassword' where u_id =  '$userId'");
         unset($_SESSION['current_user']);
-        ?>
+    ?>
         <script type="text/javascript">
             document.getElementById("success").style.display = "block";
             document.getElementById("failure").style.display = "none";
             document.getElementById("checkpass").style.display = "none";
             window.location = "https://ciliweb.vn/a/contribution_application/account/login.php";
         </script>
-        <?php
+<?php
     }
 }
 ?>

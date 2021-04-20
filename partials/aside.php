@@ -49,6 +49,16 @@
                         <!--submenu-->
                         <ul class="sub-menu" style="display: block;">
                             <li class="menu-item ">
+                                <a href="../admin/backup.php" class=" menu-link">
+                                    <span class="menu-label">
+                                        <span class="menu-name">Backup</span>
+                                    </span>
+                                    <span class="menu-icon">
+                                        <i class="mdi mdi-account-multiple mdi-24px "></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="menu-item ">
                                 <a href="../admin/manage_users.php" class=" menu-link">
                                     <span class="menu-label">
                                         <span class="menu-name">Manage User</span>
@@ -58,6 +68,7 @@
                                     </span>
                                 </a>
                             </li>
+
                             <li class="menu-item">
                                 <a href="../admin/manage_faculties.php" class=" menu-link">
                                     <span class="menu-label">
@@ -89,7 +100,7 @@
                                 </span>
                             </span>
                             <span class="menu-icon">
-                                <i class="icon-placeholder fe fe-activity "></i>
+                                <i class="icon-placeholder fe fe-home "></i>
                             </span>
                         </a>
                     </li>
@@ -98,6 +109,15 @@
                         <a href="../student/view-all-submission.php" class="menu-link">
                             <span class="menu-label">
                                 <span class="menu-name">My Submission
+                                </span>
+                            </span>
+                            <span class="menu-icon">
+                                <i class="icon-placeholder fe fe-folder"></i>
+                            </span>
+                        </a>
+                        <a href="../Chat/conversation.php" class="menu-link">
+                            <span class="menu-label">
+                                <span class="menu-name">Chat
                                 </span>
                             </span>
                             <span class="menu-icon">
@@ -114,7 +134,7 @@
                                 </span>
                             </span>
                             <span class="menu-icon">
-                                <i class="icon-placeholder fe fe-activity "></i>
+                                <i class="icon-placeholder fe fe-home "></i>
                             </span>
                         </a>
                     </li>
@@ -128,13 +148,33 @@
                                 <i class="icon-placeholder fe fe-folder"></i>
                             </span>
                         </a>
+                        <a href="../Chat/conversation.php" class="menu-link">
+                            <span class="menu-label">
+                                <span class="menu-name">Chat
+                                </span>
+                            </span>
+                            <span class="menu-icon">
+                                <i class="icon-placeholder fe fe-folder"></i>
+                            </span>
+                        </a>
                     </li>
                 <?php elseif (!empty($_SESSION["current_user"]) && $currentUser['role'] === "manager-marketing") : ?>
                     <li class="menu-item active ">
-                        <a href="../index.php" class="menu-link">
+                        <a href="../manager_marketing/index.php" class="menu-link">
                             <span class="menu-label">
                                 <span class="menu-name">
                                     Home Page
+                                </span>
+                            </span>
+                            <span class="menu-icon">
+                                <i class="icon-placeholder fe fe-home "></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="../manager_marketing/dash_board.php" class="menu-link">
+                            <span class="menu-label">
+                                <span class="menu-name">Dash Board
                                 </span>
                             </span>
                             <span class="menu-icon">
@@ -153,8 +193,21 @@
                             </span>
                         </a>
                     </li>
-                <?php endif ?>
 
+                <?php elseif (!empty($_SESSION["current_user"]) && $currentUser['role'] === "customer") : ?>
+                    <li class="menu-item active ">
+                        <a href="../Customer/manage_article.php" class="menu-link">
+                            <span class="menu-label">
+                                <span class="menu-name">
+                                    Home Page
+                                </span>
+                            </span>
+                            <span class="menu-icon">
+                                <i class="icon-placeholder fe fe-activity "></i>
+                            </span>
+                        </a>
+                    </li>
+                <?php endif ?>
             <?php endif; ?>
         </ul>
     </div>

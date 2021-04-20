@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="../assets/vendor/jquery-scrollbar/jquery.scrollbar.css">
 <link rel="stylesheet" href="../assets/vendor/select2/css/select2.min.css">
 <link rel="stylesheet" href="../assets/vendor/jquery-ui/jquery-ui.min.css">
+<link rel="stylesheet" href="../assets/css/error.css">
 <link rel="stylesheet" href="../assets/vendor/daterangepicker/daterangepicker.css">
 <link rel="stylesheet" href="../assets/vendor/timepicker/bootstrap-timepicker.min.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600" rel="stylesheet">
@@ -25,7 +26,7 @@
 <script src='https://d33wubrfki0l68.cloudfront.net/js/3d1965f9e8e63c62b671967aafcad6603deec90c/light/assets/vendor/pace/pace.min.js'></script>
 <link rel='stylesheet' type='text/css' href='https://d33wubrfki0l68.cloudfront.net/bundles/291bbeead57f19651f311362abe809b67adc3fb5.css' />
 <link rel='stylesheet' href='https://d33wubrfki0l68.cloudfront.net/bundles/fc681442cee6ccf717f33ccc57ebf17a4e0792e1.css' />
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" />
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600" rel="stylesheet">
 <link rel='stylesheet' type='text/css' href='https://d33wubrfki0l68.cloudfront.net/css/548117a22d5d22545a0ab2dddf8940a2e32c04ed/default/assets/fonts/materialdesignicons/materialdesignicons.min.css' />

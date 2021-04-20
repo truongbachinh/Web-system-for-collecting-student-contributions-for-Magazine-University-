@@ -71,3 +71,10 @@
     .feedback-form {padding-top: 15px;}
     .feedback-form  {font-size: 18px;}
 }
+.content-form.download
+{
+    background: repeat-x;
+    border-radius: 15px;
+    padding: 30px;
+    padding-left: 35px;
+}

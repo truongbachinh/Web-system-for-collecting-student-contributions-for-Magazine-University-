@@ -2,9 +2,8 @@
 
 include "../config.php";
 
-unset($_SESSION['current_user']);
-unset($_SESSION['current_admin']);
+session_destroy();
 ?>
 <script type="text/javascript">
-    window.location = "login.php";
+    window.location = "./login.php";
 </script>

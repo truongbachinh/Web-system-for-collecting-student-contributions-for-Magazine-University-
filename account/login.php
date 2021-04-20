@@ -124,7 +124,7 @@ if (isset($_POST["login"])) {
         $userCurrent =  $_SESSION["current_user"] = $user;
     ?>
         <script type="text/javascript">
-            window.location = "../manage_coordinator/my_submission.php";
+            window.location = "../manage_coordinator/index.php";
         </script>
     <?php
     } elseif ($status == "1" && $role == "manager-marketing") {
@@ -133,6 +133,14 @@ if (isset($_POST["login"])) {
     ?>
         <script type="text/javascript">
             window.location = "../manager_marketing/index.php";
+        </script>
+    <?php
+    } elseif ($status == "1" && $role == "customer") {
+        $user = mysqli_fetch_array($res);
+        $userCurrent =  $_SESSION["current_user"] = $user;
+    ?>
+        <script type="text/javascript">
+            window.location = "../Customer/index.php";
         </script>
 <?php
     }
